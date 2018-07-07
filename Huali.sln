@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Huali", "Huali\Huali.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ray.Framework.Config", "Ray.Framework.Config\Ray.Framework.Config.csproj", "{BA7CB68D-F2A6-4681-9D35-BD55D405F768}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ray.Framework.DBUtility", "Ray.Framework.DBUtility\Ray.Framework.DBUtility.csproj", "{154CB011-3414-4EC5-A452-18D8936A17A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ray.Framework.Encrypt", "Ray.Framework.Encrypt\Ray.Framework.Encrypt.csproj", "{A67FF111-911F-4035-9441-53C633D2F791}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{BA7CB68D-F2A6-4681-9D35-BD55D405F768}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA7CB68D-F2A6-4681-9D35-BD55D405F768}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA7CB68D-F2A6-4681-9D35-BD55D405F768}.Release|Any CPU.Build.0 = Release|Any CPU
+		{154CB011-3414-4EC5-A452-18D8936A17A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{154CB011-3414-4EC5-A452-18D8936A17A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{154CB011-3414-4EC5-A452-18D8936A17A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{154CB011-3414-4EC5-A452-18D8936A17A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A67FF111-911F-4035-9441-53C633D2F791}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A67FF111-911F-4035-9441-53C633D2F791}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A67FF111-911F-4035-9441-53C633D2F791}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A67FF111-911F-4035-9441-53C633D2F791}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
