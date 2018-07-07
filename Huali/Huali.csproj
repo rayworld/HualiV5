@@ -8,8 +8,9 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>Huali</RootNamespace>
     <AssemblyName>Huali</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -20,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -29,8 +31,17 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevComponents.DotNetBar2, Version=12.8.0.6, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DevComponents.DotNetBar2.dll</HintPath>
+    </Reference>
+    <Reference Include="LumiSoft.Net, Version=4.5.5510.19119, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\LumiSoft.Net.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -43,14 +54,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="CheckMailStat\CheckQRCodeState.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="CheckMailStat\CheckQRCodeState.Designer.cs">
+      <DependentUpon>CheckQRCodeState.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CheckMailStat\CheckQRCodeState.resx">
+      <DependentUpon>CheckQRCodeState.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -59,7 +82,9 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="App.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -74,6 +99,28 @@
     <Folder Include="DS9208\" />
     <Folder Include="EDI2\" />
     <Folder Include="EDI\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Ray.Framework.Config\Ray.Framework.Config.csproj">
+      <Project>{ba7cb68d-f2a6-4681-9d35-bd55d405f768}</Project>
+      <Name>Ray.Framework.Config</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ray.Framework.Converter\Ray.Framework.Converter.csproj">
+      <Project>{95ee5993-e394-4d68-8e2f-110822a77455}</Project>
+      <Name>Ray.Framework.Converter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ray.Framework.DBUtility\Ray.Framework.DBUtility.csproj">
+      <Project>{154cb011-3414-4ec5-a452-18d8936a17a6}</Project>
+      <Name>Ray.Framework.DBUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ray.Framework.Encrypt\Ray.Framework.Encrypt.csproj">
+      <Project>{a67ff111-911f-4035-9441-53c633d2f791}</Project>
+      <Name>Ray.Framework.Encrypt</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ray.Framework.WindowManage\Ray.Framework.WindowManage.csproj">
+      <Project>{730b3aaa-a295-4272-9f96-0d1daf84c7b5}</Project>
+      <Name>Ray.Framework.WindowManage</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

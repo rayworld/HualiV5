@@ -46,5 +46,11 @@
     <Compile Include="OracleHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Ray.Framework.Encrypt\Ray.Framework.Encrypt.csproj">
+      <Project>{a67ff111-911f-4035-9441-53c633d2f791}</Project>
+      <Name>Ray.Framework.Encrypt</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
