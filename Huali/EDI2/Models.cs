@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace HualiHan.Models
+namespace Huali.Models
 {
     #region SEOutStock
     [Serializable]

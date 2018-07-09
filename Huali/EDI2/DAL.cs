@@ -3,9 +3,9 @@ using System.Data;
 using System.Text;
 using System.Data.SqlClient;
 using Ray.Framework.DBUtility;
-using HualiHan.Models;
+using Huali.Models;
 
-namespace HualiHan.DAL
+namespace Huali.DAL
 {
     #region SEOutStock
     /// <summary>
@@ -23,7 +23,7 @@ namespace HualiHan.DAL
         /// <summary>
         /// 增加一条数据
         /// </summary>
-        public bool InsertBill(HualiHan.Models.SEOutStock model)
+        public bool InsertBill(Huali.Models.SEOutStock model)
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("insert into SEOutStock(");
@@ -233,7 +233,7 @@ namespace HualiHan.DAL
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        public bool InsertBillEntry(HualiHan.Models.SEOutStockEntry model)
+        public bool InsertBillEntry(Huali.Models.SEOutStockEntry model)
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("insert into SEOutStockEntry(");
@@ -415,7 +415,7 @@ namespace HualiHan.DAL
         /// <param name="fNumber">产品代码前4位</param>
         /// <param name="fName">近视光度</param>
         /// <returns></returns>
-        public int getInterIDByFName(string fName)
+        public int GetInterIDByFName(string fName)
         {
             string sql = string.Format("select FInterID from t_SubMessage where FName = '{0}'", fName);
             object obj = SqlHelper.ExecuteScalar(SqlHelper.GetConnectionString("kingdee"), sql);
@@ -433,9 +433,9 @@ namespace HualiHan.DAL
 	/// <summary>
 	/// 数据访问类:t_ICItem
 	/// </summary>
-	public partial class t_ICItem
+	public partial class T_ICItem
 	{
-		public t_ICItem()
+		public T_ICItem()
 		{}
 		#region  BasicMethod
 
@@ -531,7 +531,7 @@ namespace HualiHan.DAL
         /// <param name="fNumber">产品代码前4位</param>
         /// <param name="fName">近视光度</param>
         /// <returns></returns>
-        public int getItemIDByFNameFnumber(string fNumber,string fName)
+        public int GetItemIDByFNameFnumber(string fNumber,string fName)
         {
             string sql = string.Format("SELECT FItemID FROM t_icitem WHERE FNumber LIKE  '{0}%' AND RIGHT(FName, 4) = '{1}'",fNumber,fName.PadLeft(4,'0'));
             object obj = SqlHelper.ExecuteScalar(SqlHelper.GetConnectionString("kingdee"), sql);
@@ -544,7 +544,7 @@ namespace HualiHan.DAL
         /// <param name="fNumber">产品代码前4位</param>
         /// <param name="fName">近视光度</param>
         /// <returns>产品编号</returns>
-        public int getItemIDBySKU(string sku)
+        public int GetItemIDBySKU(string sku)
         {
             string sql = string.Format("SELECT FItemID FROM t_icitem WHERE FHelpCode = '{0}' or F_111 = '{0}'", sku);
             object obj = SqlHelper.ExecuteScalar(SqlHelper.GetConnectionString("kingdee"), sql);
@@ -556,7 +556,7 @@ namespace HualiHan.DAL
         /// </summary>
         /// <param name="fNumber"></param>
         /// <returns>客户编号/门店编号</returns>
-        public int getCustIDByFnumber(string fNumber)
+        public int GetCustIDByFnumber(string fNumber)
         {
             string sql = string.Format("SELECT fItemID FROM t_Organization WHERE FNumber = '{0}'",fNumber);
             object obj = SqlHelper.ExecuteScalar(SqlHelper.GetConnectionString("kingdee"), sql);
@@ -568,7 +568,7 @@ namespace HualiHan.DAL
         /// </summary>
         /// <param name="FName">仓库名称</param>
         /// <returns>仓库编号</returns>
-        public int getStockIDByFName(string fname)
+        public int GetStockIDByFName(string fname)
         {
             string sql = string.Format("SELECT fItemID FROM t_stock WHERE t_stock.FName = '{0}'", fname);
             object obj = SqlHelper.ExecuteScalar(SqlHelper.GetConnectionString("kingdee"), sql);
@@ -580,7 +580,7 @@ namespace HualiHan.DAL
         /// </summary>
         /// <param name="itemId">产品编号</param>
         /// <returns>销售价格</returns>
-        public decimal getSalePriceByFItemID(int itemId)
+        public decimal GetSalePriceByFItemID(int itemId)
         {
             string sql = string.Format("SELECT FSalePrice FROM t_icitem WHERE FItemID = {0}",itemId);
             object obj = SqlHelper.ExecuteScalar(SqlHelper.GetConnectionString("kingdee"), sql);
@@ -592,7 +592,7 @@ namespace HualiHan.DAL
         /// </summary>
         /// <param name="itemid">物料ID</param>
         /// <returns>单位ID</returns>        
-        public int getUnitIDByitemID(int itemid)
+        public int GetUnitIDByitemID(int itemid)
         {
             string sql = string.Format("SELECT FUnitID FROM t_ICItem WHERE  FItemID = {0}", itemid);
             object obj = SqlHelper.ExecuteScalar(SqlHelper.GetConnectionString("kingdee"), sql);

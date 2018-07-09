@@ -60,6 +60,14 @@
     <Compile Include="CheckMailStat\CheckQRCodeState.Designer.cs">
       <DependentUpon>CheckQRCodeState.cs</DependentUpon>
     </Compile>
+    <Compile Include="EDI2\DAL.cs" />
+    <Compile Include="EDI2\frmEDI_SEOutStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EDI2\frmEDI_SEOutStock.designer.cs">
+      <DependentUpon>frmEDI_SEOutStock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EDI2\Models.cs" />
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +78,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="CheckMailStat\CheckQRCodeState.resx">
       <DependentUpon>CheckQRCodeState.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EDI2\frmEDI_SEOutStock.resx">
+      <DependentUpon>frmEDI_SEOutStock.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
@@ -97,7 +108,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DS9208\" />
-    <Folder Include="EDI2\" />
     <Folder Include="EDI\" />
   </ItemGroup>
   <ItemGroup>

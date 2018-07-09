@@ -1,4 +1,4 @@
-namespace HualiHan
+namespace Huali
 {
     partial class frmEDI_SEOutStock
     {
@@ -51,13 +51,13 @@ namespace HualiHan
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewX1.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewX1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewX1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
-            this.dataGridViewX1.Location = new System.Drawing.Point(0, 135);
+            this.dataGridViewX1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.dataGridViewX1.Location = new System.Drawing.Point(0, 73);
             this.dataGridViewX1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridViewX1.Name = "dataGridViewX1";
             this.dataGridViewX1.ReadOnly = true;
             this.dataGridViewX1.RowTemplate.Height = 23;
-            this.dataGridViewX1.Size = new System.Drawing.Size(1028, 614);
+            this.dataGridViewX1.Size = new System.Drawing.Size(1028, 676);
             this.dataGridViewX1.TabIndex = 13;
             // 
             // panelEx1
@@ -71,7 +71,7 @@ namespace HualiHan
             this.panelEx1.Location = new System.Drawing.Point(0, 0);
             this.panelEx1.Margin = new System.Windows.Forms.Padding(4);
             this.panelEx1.Name = "panelEx1";
-            this.panelEx1.Size = new System.Drawing.Size(1028, 135);
+            this.panelEx1.Size = new System.Drawing.Size(1028, 73);
             this.panelEx1.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelEx1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.panelEx1.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
@@ -85,27 +85,27 @@ namespace HualiHan
             // 
             this.buttonX2.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX2.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX2.Location = new System.Drawing.Point(32, 42);
+            this.buttonX2.Location = new System.Drawing.Point(22, 13);
             this.buttonX2.Margin = new System.Windows.Forms.Padding(4);
             this.buttonX2.Name = "buttonX2";
             this.buttonX2.Size = new System.Drawing.Size(141, 48);
             this.buttonX2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX2.TabIndex = 7;
             this.buttonX2.Text = "打开";
-            this.buttonX2.Click += new System.EventHandler(this.buttonX2_Click);
+            this.buttonX2.Click += new System.EventHandler(this.ButtonX2_Click);
             // 
             // buttonX1
             // 
             this.buttonX1.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX1.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX1.Location = new System.Drawing.Point(201, 42);
+            this.buttonX1.Location = new System.Drawing.Point(191, 13);
             this.buttonX1.Margin = new System.Windows.Forms.Padding(4);
             this.buttonX1.Name = "buttonX1";
             this.buttonX1.Size = new System.Drawing.Size(141, 48);
             this.buttonX1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX1.TabIndex = 6;
             this.buttonX1.Text = "导入";
-            this.buttonX1.Click += new System.EventHandler(this.buttonX1_Click);
+            this.buttonX1.Click += new System.EventHandler(this.ButtonX1_Click);
             // 
             // frmEDI_SEOutStock
             // 

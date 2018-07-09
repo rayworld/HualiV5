@@ -1,4 +1,5 @@
 ﻿using DevComponents.DotNetBar;
+using DevComponents.DotNetBar.Controls;
 using Ray.Framework.Config;
 using Ray.Framework.WindowManage;
 using System;
@@ -26,7 +27,8 @@ namespace Huali
         {
             this.ribbonControl1.TitleText = ConfigHelper.ReadValueByKey(ConfigHelper.ConfigurationFile.AppConfig, "AppName");
             this.styleManager1.ManagerStyle = (eStyle)Enum.Parse(typeof(eStyle), ConfigHelper.ReadValueByKey(ConfigHelper.ConfigurationFile.AppConfig, "FormStyle"));
-            //DesktopAlert.Show("<h2>" + EncryptHelper.Decrypt("gGxSu0Ol377UqZbjAHLLQsudzaT0kPNLfUUSCtCLsEt/lC/O7KX2slZUCshbx5+SYkcWi3uWAVg/jhkc3pF6rw==") + "</h2>");
+
+            LoadModule();
 
         }
 
@@ -110,10 +112,65 @@ namespace Huali
             //保存用户设置
             ConfigHelper.UpdateOrCreateAppSetting(ConfigHelper.ConfigurationFile.AppConfig, "FormStyle", source.CommandParameter.ToString());
         }
-        
+
+        /// <summary>
+        /// 日立订单导入
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ButtonItem14_Click(object sender, EventArgs e)
+        {
+            SetMdiForm("日立订单导入", typeof(frmEDI_SEOutStock));
+        }
+        /// <summary>
+        /// 其它订单导入
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ButtonItem15_Click(object sender, EventArgs e)
+        {
+            SetMdiForm("其它订单导入", typeof(frmEDI_SEOutStock));
+        }
+
         #endregion
 
         #region 私有过程
+
+        private void LoadModule()
+        {
+            string myModules = ConfigHelper.ReadValueByKey(ConfigHelper.ConfigurationFile.AppConfig, "Modules");
+            if (!string.IsNullOrWhiteSpace( myModules))
+            {
+                string[] myModule = myModules.Split(';');
+                foreach (string module in myModule)
+                {
+                    if (module.ToLower() == ModuleName.edi.ToString())
+                    {
+                        ribbonTabItem2.Visible = true;
+                        ribbonTabItem2.Select();
+                    }
+                    else if (module.ToLower() == ModuleName.edi2.ToString())
+                    {
+                        ribbonTabItem1.Visible = true;
+                        ribbonTabItem1.Select();
+                    }
+                    else if (module.ToLower() == ModuleName.ds9208_镜片.ToString())
+                    {
+                        ribbonTabItem3.Visible = true;
+                        ribbonTabItem3.Select();
+                    }
+                    else
+                    {
+                        DesktopAlert.Show("<h2>" + module.ToLower() + "不能识别的应用模块！</h2>");
+                    }
+                }
+
+            }
+            else
+            {
+                DesktopAlert.Show("<h2>应用程序加载模块出错！</h2>");
+            }
+        }
 
 
         /// <summary>
@@ -158,9 +215,18 @@ namespace Huali
                 NavTabControl.SelectedTab = tabItem;
             }
         }
- 
+
+
 
         #endregion
 
+    }
+    public enum ModuleName
+    {
+        edi,
+        edi2,
+        ds9208_镜片,
+        ds9208_护理液,
+        checkmailstat,
     }
 }
