@@ -12,9 +12,9 @@ using System.Windows.Forms;
 
 namespace Huali
 {
-    public partial class CheckQRCodeState : Office2007Form
+    public partial class FORM_CheckQRCodeState : Office2007Form
     {
-        public CheckQRCodeState()
+        public FORM_CheckQRCodeState()
         {
             InitializeComponent();
         }

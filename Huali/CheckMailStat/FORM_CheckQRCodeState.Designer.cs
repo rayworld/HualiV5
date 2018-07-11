@@ -1,6 +1,6 @@
 namespace Huali
 {
-    partial class CheckQRCodeState
+    partial class FORM_CheckQRCodeState
     {
 
         /// <summary>

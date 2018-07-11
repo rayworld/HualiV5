@@ -54,20 +54,41 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CheckMailStat\CheckQRCodeState.cs">
+    <Compile Include="CheckMailStat\FORM_CheckQRCodeState.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CheckMailStat\CheckQRCodeState.Designer.cs">
-      <DependentUpon>CheckQRCodeState.cs</DependentUpon>
+    <Compile Include="CheckMailStat\FORM_CheckQRCodeState.Designer.cs">
+      <DependentUpon>FORM_CheckQRCodeState.cs</DependentUpon>
     </Compile>
     <Compile Include="EDI2\DAL.cs" />
-    <Compile Include="EDI2\frmEDI_SEOutStock.cs">
+    <Compile Include="EDI2\FORM_EDI2_SEOutStock.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EDI2\frmEDI_SEOutStock.designer.cs">
-      <DependentUpon>frmEDI_SEOutStock.cs</DependentUpon>
+    <Compile Include="EDI2\FORM_EDI2_SEOutStock.designer.cs">
+      <DependentUpon>FORM_EDI2_SEOutStock.cs</DependentUpon>
     </Compile>
     <Compile Include="EDI2\Models.cs" />
+    <Compile Include="EDI\DAL.cs" />
+    <Compile Include="EDI\Enums.cs" />
+    <Compile Include="EDI\FORM_Export.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EDI\FORM_Export.designer.cs">
+      <DependentUpon>FORM_Export.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EDI\FORM_Import.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EDI\FORM_Import.designer.cs">
+      <DependentUpon>FORM_Import.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EDI\FORM_POAcception.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EDI\FORM_POAcception.designer.cs">
+      <DependentUpon>FORM_POAcception.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EDI\Models.cs" />
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,11 +97,20 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="CheckMailStat\CheckQRCodeState.resx">
-      <DependentUpon>CheckQRCodeState.cs</DependentUpon>
+    <EmbeddedResource Include="CheckMailStat\FORM_CheckQRCodeState.resx">
+      <DependentUpon>FORM_CheckQRCodeState.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EDI2\frmEDI_SEOutStock.resx">
-      <DependentUpon>frmEDI_SEOutStock.cs</DependentUpon>
+    <EmbeddedResource Include="EDI2\FORM_EDI2_SEOutStock.resx">
+      <DependentUpon>FORM_EDI2_SEOutStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EDI\FORM_Export.resx">
+      <DependentUpon>FORM_Export.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EDI\FORM_Import.resx">
+      <DependentUpon>FORM_Import.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EDI\FORM_POAcception.resx">
+      <DependentUpon>FORM_POAcception.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
@@ -108,7 +138,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DS9208\" />
-    <Folder Include="EDI\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Ray.Framework.Config\Ray.Framework.Config.csproj">

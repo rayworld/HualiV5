@@ -43,7 +43,6 @@
   <ItemGroup>
     <Compile Include="AccessHelper.cs" />
     <Compile Include="SqlHelper.cs" />
-    <Compile Include="OracleHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

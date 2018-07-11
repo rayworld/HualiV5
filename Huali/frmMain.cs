@@ -26,8 +26,9 @@ namespace Huali
         private void Form_Main_Load(object sender, EventArgs e)
         {
             this.ribbonControl1.TitleText = ConfigHelper.ReadValueByKey(ConfigHelper.ConfigurationFile.AppConfig, "AppName");
-            this.styleManager1.ManagerStyle = (eStyle)Enum.Parse(typeof(eStyle), ConfigHelper.ReadValueByKey(ConfigHelper.ConfigurationFile.AppConfig, "FormStyle"));
-
+            //this.styleManager1.ManagerStyle = (eStyle)Enum.Parse(typeof(eStyle), ConfigHelper.ReadValueByKey(ConfigHelper.ConfigurationFile.AppConfig, "FormStyle"));
+            //获取窗口样式
+            GetStyleSetting();
             LoadModule();
 
         }
@@ -120,7 +121,7 @@ namespace Huali
         /// <param name="e"></param>
         private void ButtonItem14_Click(object sender, EventArgs e)
         {
-            SetMdiForm("日立订单导入", typeof(frmEDI_SEOutStock));
+            SetMdiForm("日立订单导入", typeof(FORM_EDI2_SEOutStock));
         }
         /// <summary>
         /// 其它订单导入
@@ -129,7 +130,7 @@ namespace Huali
         /// <param name="e"></param>
         private void ButtonItem15_Click(object sender, EventArgs e)
         {
-            SetMdiForm("其它订单导入", typeof(frmEDI_SEOutStock));
+            SetMdiForm("其它订单导入", typeof(FORM_EDI2_SEOutStock));
         }
 
         #endregion
@@ -216,10 +217,40 @@ namespace Huali
             }
         }
 
+        /// <summary>
+        /// 窗体加载时，检查样式
+        /// </summary>
+        private void GetStyleSetting()
+        {
+            this.styleManager1.ManagerStyle = (eStyle)Enum.Parse(typeof(eStyle), ConfigHelper.ReadValueByKey(ConfigHelper.ConfigurationFile.AppConfig, "FormStyle"));
+            string managerStyle = this.styleManager1.ManagerStyle.ToString();
+            for (int i = 0; i < buttonItem1.SubItems.Count - 1; i++)
+            {
+                if (managerStyle is string && managerStyle == buttonItem1.SubItems[i].CommandParameter.ToString())
+                {
+                    ButtonItem bi = (ButtonItem)buttonItem1.SubItems[i];
+                    bi.Checked = true;
+                }
+            }
 
+        }
 
         #endregion
 
+        private void buttonItem18_Click(object sender, EventArgs e)
+        {
+            SetMdiForm("导入收货通知单", typeof(FORM_Import));
+        }
+
+        private void buttonItem19_Click(object sender, EventArgs e)
+        {
+            SetMdiForm("导出EDI数据", typeof(FORM_Export));
+        }
+
+        private void buttonItem20_Click(object sender, EventArgs e)
+        {
+            SetMdiForm("确认到货通知", typeof(FORM_POAcception));
+        }
     }
     public enum ModuleName
     {

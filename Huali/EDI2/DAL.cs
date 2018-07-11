@@ -3,9 +3,9 @@ using System.Data;
 using System.Text;
 using System.Data.SqlClient;
 using Ray.Framework.DBUtility;
-using Huali.Models;
+using Huali.EDI2.Models;
 
-namespace Huali.DAL
+namespace Huali.EDI2.DAL
 {
     #region SEOutStock
     /// <summary>
@@ -23,7 +23,7 @@ namespace Huali.DAL
         /// <summary>
         /// 增加一条数据
         /// </summary>
-        public bool InsertBill(Huali.Models.SEOutStock model)
+        public bool InsertBill(Huali.EDI2.Models.SEOutStock model)
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("insert into SEOutStock(");
@@ -233,7 +233,7 @@ namespace Huali.DAL
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        public bool InsertBillEntry(Huali.Models.SEOutStockEntry model)
+        public bool InsertBillEntry(Huali.EDI2.Models.SEOutStockEntry model)
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("insert into SEOutStockEntry(");
@@ -451,7 +451,7 @@ namespace Huali.DAL
 			{
 				strSql.Append(" where "+strWhere);
 			}
-			return SqlHelper.ExecuteDataTable(strSql.ToString());
+			return SqlHelper.ExecuteDataTable(SqlHelper.GetConnectionString("kingdee"), strSql.ToString());
 		}
 
 		/// <summary>
@@ -472,7 +472,7 @@ namespace Huali.DAL
 				strSql.Append(" where "+strWhere);
 			}
 			strSql.Append(" order by " + filedOrder);
-			return SqlHelper.ExecuteDataTable(strSql.ToString());
+			return SqlHelper.ExecuteDataTable(SqlHelper.GetConnectionString("kingdee"), strSql.ToString());
 		}
 
 		/// <summary>
@@ -486,7 +486,7 @@ namespace Huali.DAL
 			{
 				strSql.Append(" where "+strWhere);
 			}
-			object obj = SqlHelper.ExecuteScalar(strSql.ToString());
+			object obj = SqlHelper.ExecuteScalar(SqlHelper.GetConnectionString("kingdee"), strSql.ToString());
 			if (obj == null)
 			{
 				return 0;
@@ -519,7 +519,7 @@ namespace Huali.DAL
 			}
 			strSql.Append(" ) TT");
 			strSql.AppendFormat(" WHERE TT.Row between {0} and {1}", startIndex, endIndex);
-			return SqlHelper.ExecuteDataTable(strSql.ToString());
+			return SqlHelper.ExecuteDataTable(SqlHelper.GetConnectionString("kingdee"), strSql.ToString());
 		}
 
 		#endregion  BasicMethod

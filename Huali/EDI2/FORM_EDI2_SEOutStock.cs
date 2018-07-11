@@ -1,6 +1,6 @@
 using DevComponents.DotNetBar;
 using DevComponents.DotNetBar.Controls;
-using Huali.Models;
+using Huali.EDI2.Models;
 using Ray.Framework.Converter;
 using System;
 using System.Data;
@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace Huali
 {
-    public partial class frmEDI_SEOutStock : Office2007Form
+    public partial class FORM_EDI2_SEOutStock : Office2007Form
     {
-        public frmEDI_SEOutStock()
+        public FORM_EDI2_SEOutStock()
         {
             InitializeComponent();
         }
@@ -197,7 +197,7 @@ namespace Huali
             foreach (DataRow dr in dt.Rows)
             {
                 //检查产品代码
-                Huali.DAL.T_ICItem dICItem = new DAL.T_ICItem();
+                Huali.EDI2.DAL.T_ICItem dICItem = new EDI2.DAL.T_ICItem();
                 string rowNum = dr["序号"].ToString();
                 string productNumber = dr["补货产品编号"].ToString();
                 string productDegree = dr["近视光度"].ToString();
@@ -259,7 +259,7 @@ namespace Huali
         /// <param name="dt">一张订单的数据</param>
         private bool InsertSaleBill_RL(DataTable dt)
         {
-            Huali.DAL.SEOutStock dSale = new DAL.SEOutStock();
+            Huali.EDI2.DAL.SEOutStock dSale = new EDI2.DAL.SEOutStock();
             int interId = dSale.GetMaxFInterID();
             string billNo = dSale.GetMaxFBillNo();
             string sourceBillNo = dt.Rows[0]["订单号"].ToString();
@@ -268,7 +268,7 @@ namespace Huali
             int storeId = int.Parse(dt.Rows[0]["门店编号"].ToString());
             string productName = dt.Rows[0]["补货产品名称"].ToString();
             string explanation = string.Format("免费品 {0} 2+1+1", productName);
-            Huali.Models.SEOutStock mSale = BuildSaleModel(interId, billNo, storeId, explanation, sourceBillNo, custId, 20303, 40394, 15326);
+            Huali.EDI2.Models.SEOutStock mSale = BuildSaleModel(interId, billNo, storeId, explanation, sourceBillNo, custId, 20303, 40394, 15326);
             try
             {
                 if (dSale.InsertBill(mSale) == true)
@@ -279,15 +279,15 @@ namespace Huali
                     int succ = 0;
                     for (int i = 0; i < dt.Rows.Count; i++)
                     {
-                        Huali.DAL.SEOutStockEntry dSaleEnrty = new DAL.SEOutStockEntry();
+                        Huali.EDI2.DAL.SEOutStockEntry dSaleEnrty = new EDI2.DAL.SEOutStockEntry();
                         int itemId = int.Parse(dt.Rows[i]["补货产品编号"].ToString());
                         int entryId = i + 1;                        
                         int stockId = 526;//CSW
                         int qty = int.Parse(dt.Rows[i]["补货数量"].ToString());
-                        Huali.DAL.T_ICItem dicitem = new DAL.T_ICItem();
+                        Huali.EDI2.DAL.T_ICItem dicitem = new EDI2.DAL.T_ICItem();
                         decimal price = dicitem.GetSalePriceByFItemID(itemId);
 
-                        Huali.Models.SEOutStockEntry mSaleEntry = BuildSaleEntryModel(interId, entryId, itemId, stockId, qty, price, 0, 0, qty, qty, 0, 0,40311,40635, 255);
+                        Huali.EDI2.Models.SEOutStockEntry mSaleEntry = BuildSaleEntryModel(interId, entryId, itemId, stockId, qty, price, 0, 0, qty, qty, 0, 0,40311,40635, 255);
 
                         if (dSaleEnrty.InsertBillEntry(mSaleEntry))
                         {
@@ -372,7 +372,7 @@ namespace Huali
 
             if (tmpdt.Rows.Count > 0)
             {
-                Huali.DAL.SEOutStock dSale = new DAL.SEOutStock();
+                Huali.EDI2.DAL.SEOutStock dSale = new EDI2.DAL.SEOutStock();
                 int interId = dSale.GetMaxFInterID();
                 string billNo = dSale.GetMaxFBillNo();
                 string sourceBillNo = tmpdt.Rows[0]["订单号"].ToString();
@@ -381,7 +381,7 @@ namespace Huali
                 int storeId = int.Parse(tmpdt.Rows[0]["门店代码"].ToString());
                 string productName = tmpdt.Rows[0]["收货方部门"].ToString();
                 string explanation = string.Format("随货赠送 {0}", productName);
-                Huali.Models.SEOutStock mSale = BuildSaleModel(interId, billNo, storeId, explanation, sourceBillNo, custId, 20303, 40394, 15322);
+                Huali.EDI2.Models.SEOutStock mSale = BuildSaleModel(interId, billNo, storeId, explanation, sourceBillNo, custId, 20303, 40394, 15322);
                 try
                 {
                     if (dSale.InsertBill(mSale) == true)
@@ -392,16 +392,16 @@ namespace Huali
                         int succ = 0;
                         for (int i = 0; i < tmpdt.Rows.Count; i++)
                         {
-                            Huali.DAL.SEOutStockEntry dSaleEnrty = new DAL.SEOutStockEntry();
+                            Huali.EDI2.DAL.SEOutStockEntry dSaleEnrty = new EDI2.DAL.SEOutStockEntry();
                             int itemId = int.Parse(tmpdt.Rows[i]["SKU"].ToString());
                             int entryId = i + 1;
                             int stockId = int.Parse(tmpdt.Rows[i]["仓库"].ToString());
                             int qty = int.Parse(tmpdt.Rows[i]["赠品"].ToString());
-                            Huali.DAL.T_ICItem dicitem = new DAL.T_ICItem();
+                            Huali.EDI2.DAL.T_ICItem dicitem = new EDI2.DAL.T_ICItem();
                             decimal price = dicitem.GetSalePriceByFItemID(itemId);
                             int unitid = dicitem.GetUnitIDByitemID(itemId);
 
-                            Huali.Models.SEOutStockEntry mSaleEntry = BuildSaleEntryModel(interId, entryId, itemId, stockId, qty, price, 0, 0, 0, 0, 0, 0, 40384, 40526, unitid);
+                            Huali.EDI2.Models.SEOutStockEntry mSaleEntry = BuildSaleEntryModel(interId, entryId, itemId, stockId, qty, price, 0, 0, 0, 0, 0, 0, 40384, 40526, unitid);
 
                             if (dSaleEnrty.InsertBillEntry(mSaleEntry))
                             {
@@ -448,7 +448,7 @@ namespace Huali
 
             if (tmpdt.Rows.Count > 0)
             {
-                Huali.DAL.SEOutStock dSale = new DAL.SEOutStock();
+                Huali.EDI2.DAL.SEOutStock dSale = new EDI2.DAL.SEOutStock();
                 int interId = dSale.GetMaxFInterID();
                 string billNo = dSale.GetMaxFBillNo();
                 string sourceBillNo = tmpdt.Rows[0]["订单号"].ToString();
@@ -457,7 +457,7 @@ namespace Huali
                 int storeId = int.Parse(tmpdt.Rows[0]["门店代码"].ToString());
                 string productName = tmpdt.Rows[0]["收货方部门"].ToString();
                 string explanation = string.Format("随货赠送卓效 {0}", productName);
-                Huali.Models.SEOutStock mSale = BuildSaleModel(interId, billNo, storeId, explanation, sourceBillNo, custId, 20303, 40393, 15326);
+                Huali.EDI2.Models.SEOutStock mSale = BuildSaleModel(interId, billNo, storeId, explanation, sourceBillNo, custId, 20303, 40393, 15326);
                 try
                 {
                     if (dSale.InsertBill(mSale) == true)
@@ -468,16 +468,16 @@ namespace Huali
                         int succ = 0;
                         for (int i = 0; i < tmpdt.Rows.Count; i++)
                         {
-                            Huali.DAL.SEOutStockEntry dSaleEnrty = new DAL.SEOutStockEntry();
+                            Huali.EDI2.DAL.SEOutStockEntry dSaleEnrty = new EDI2.DAL.SEOutStockEntry();
                             int itemId = int.Parse(tmpdt.Rows[i]["SKU"].ToString());
                             int entryId = i + 1;
                             int stockId = int.Parse(tmpdt.Rows[i]["仓库"].ToString());
                             int qty = int.Parse(tmpdt.Rows[i]["赠品"].ToString());
-                            Huali.DAL.T_ICItem dicitem = new DAL.T_ICItem();
+                            Huali.EDI2.DAL.T_ICItem dicitem = new EDI2.DAL.T_ICItem();
                             decimal price = dicitem.GetSalePriceByFItemID(itemId);
                             int unitid = dicitem.GetUnitIDByitemID(itemId);
 
-                            Huali.Models.SEOutStockEntry mSaleEntry = BuildSaleEntryModel(interId, entryId, itemId, stockId, qty, 0, 0, 0, 0, 0, 0, 0, 40311, 40569,unitid);
+                            Huali.EDI2.Models.SEOutStockEntry mSaleEntry = BuildSaleEntryModel(interId, entryId, itemId, stockId, qty, 0, 0, 0, 0, 0, 0, 0, 40311, 40569,unitid);
 
                             if (dSaleEnrty.InsertBillEntry(mSaleEntry))
                             {
@@ -526,7 +526,7 @@ namespace Huali
 
             if (tmpdt.Rows.Count > 0)
             {
-                Huali.DAL.SEOutStock dSale = new DAL.SEOutStock();
+                Huali.EDI2.DAL.SEOutStock dSale = new EDI2.DAL.SEOutStock();
                 int interId = dSale.GetMaxFInterID();
                 string billNo = dSale.GetMaxFBillNo();
                 string sourceBillNo = tmpdt.Rows[0]["订单号"].ToString();
@@ -536,7 +536,7 @@ namespace Huali
                 string productName = tmpdt.Rows[0]["收货方部门"].ToString();
                 //string explanation = string.Format("补货 {0}", productName);
                 string explanation = string.Format("{0}", productName);    
-                Huali.Models.SEOutStock mSale = BuildSaleModel(interId, billNo, storeId, explanation, sourceBillNo, custId, 20302, null, 15322);
+                Huali.EDI2.Models.SEOutStock mSale = BuildSaleModel(interId, billNo, storeId, explanation, sourceBillNo, custId, 20302, null, 15322);
                 try
                 {
                     if (dSale.InsertBill(mSale) == true)
@@ -547,17 +547,17 @@ namespace Huali
                         int succ = 0;
                         for (int i = 0; i < tmpdt.Rows.Count; i++)
                         {
-                            Huali.DAL.SEOutStockEntry dSaleEnrty = new DAL.SEOutStockEntry();
+                            Huali.EDI2.DAL.SEOutStockEntry dSaleEnrty = new EDI2.DAL.SEOutStockEntry();
                             int itemId = int.Parse(tmpdt.Rows[i]["SKU"].ToString());
                             int entryId = i + 1;
                             int stockId = int.Parse(tmpdt.Rows[i]["仓库"].ToString());
                             int qty = int.Parse(tmpdt.Rows[i]["数量"].ToString());
                             //int cxType = int.Parse(tmpdt.Rows[i]["促销类别"].ToString());
-                            Huali.DAL.T_ICItem dicitem = new DAL.T_ICItem();
+                            Huali.EDI2.DAL.T_ICItem dicitem = new EDI2.DAL.T_ICItem();
                             decimal price = dicitem.GetSalePriceByFItemID(itemId);
                             int unitid = dicitem.GetUnitIDByitemID(itemId);
 
-                            Huali.Models.SEOutStockEntry mSaleEntry = BuildSaleEntryModel(interId, entryId, itemId, stockId, qty, price, 0, 0, 0, 0, 0, 0, 40384, 40470,unitid);
+                            Huali.EDI2.Models.SEOutStockEntry mSaleEntry = BuildSaleEntryModel(interId, entryId, itemId, stockId, qty, price, 0, 0, 0, 0, 0, 0, 40384, 40470,unitid);
 
                             if (dSaleEnrty.InsertBillEntry(mSaleEntry))
                             {
@@ -606,7 +606,7 @@ namespace Huali
             foreach (DataRow dr in dt.Rows)
             {
                 //检查产品代码
-                Huali.DAL.T_ICItem dICItem = new DAL.T_ICItem();
+                Huali.EDI2.DAL.T_ICItem dICItem = new EDI2.DAL.T_ICItem();
                 string rowNum = dr["序号"].ToString();
                 string sku = dr["SKU"].ToString();
                 int productId = dICItem.GetItemIDBySKU(sku);
@@ -672,7 +672,7 @@ namespace Huali
 
                 //促销类别
                 string cuxiaoType = dr["促销类别"].ToString();
-                Huali.DAL.SEOutStockEntry dEntry = new DAL.SEOutStockEntry();
+                Huali.EDI2.DAL.SEOutStockEntry dEntry = new EDI2.DAL.SEOutStockEntry();
                 int cxType = dEntry.GetInterIDByFName(cuxiaoType);
                 dr["促销类别"] = cxType.ToString();
             }
@@ -695,13 +695,13 @@ namespace Huali
         /// <param name="HeadSelfS0238">2048.2000</param>
         /// <param name="HeadSelfS0239">sp.so</param>
         /// <returns></returns>i
-        private Huali.Models.SEOutStock BuildSaleModel(int interId, string billNo, int storeId, string explanation, string sourceBillNo, int customId, int areaPS, int? HeadSelfS0238, int HeadSelfS0239)
+        private Huali.EDI2.Models.SEOutStock BuildSaleModel(int interId, string billNo, int storeId, string explanation, string sourceBillNo, int customId, int areaPS, int? HeadSelfS0238, int HeadSelfS0239)
         {
             //公共当前日期
             DateTime currDate = DateTime.Now.Date;
 
-            Huali.Models.SEOutStock mSale = new SEOutStock();
-            Huali.DAL.SEOutStock dSale = new Huali.DAL.SEOutStock();
+            Huali.EDI2.Models.SEOutStock mSale = new SEOutStock();
+            Huali.EDI2.DAL.SEOutStock dSale = new Huali.EDI2.DAL.SEOutStock();
             mSale.FInterID = interId;
             mSale.FBillNo = billNo;
             mSale.FTranType = 83;
@@ -794,7 +794,7 @@ namespace Huali
         /// <param name="EntrySelfS0252"></param>
         /// <param name="EntrySelfS0253"></param>
         /// <returns></returns>
-        private Huali.Models.SEOutStockEntry BuildSaleEntryModel(int finterid, int fentryid, int fitemid, int fstockid, decimal qty, decimal price, decimal CommitQty, decimal AuxCommitQty, decimal StockQty, decimal AuxStockQty, decimal AuxStockBillQty, decimal StockBillQty, int EntrySelfS0252, int EntrySelfS0253,int UnitID)
+        private Huali.EDI2.Models.SEOutStockEntry BuildSaleEntryModel(int finterid, int fentryid, int fitemid, int fstockid, decimal qty, decimal price, decimal CommitQty, decimal AuxCommitQty, decimal StockQty, decimal AuxStockQty, decimal AuxStockBillQty, decimal StockBillQty, int EntrySelfS0252, int EntrySelfS0253,int UnitID)
         {
             /// 公共数量
             decimal currQty = qty;
@@ -803,7 +803,7 @@ namespace Huali
             /// 公共当前时间
             DateTime currDate = DateTime.Now.Date;
 
-            Huali.Models.SEOutStockEntry mSaleEntry = new SEOutStockEntry
+            Huali.EDI2.Models.SEOutStockEntry mSaleEntry = new SEOutStockEntry
             {
                 FInterID = finterid,
                 FEntryID = fentryid,

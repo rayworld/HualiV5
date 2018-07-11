@@ -19,7 +19,7 @@ namespace Huali
             string modelName = ConfigHelper.ReadValueByKey(ConfigHelper.ConfigurationFile.AppConfig, "ModelName");
             if (modelName.ToLower() == "checkmailstat")
             {
-                Application.Run(new CheckQRCodeState());
+                Application.Run(new FORM_CheckQRCodeState());
             }
             else
             {
