@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace Huali
 {
-    public partial class Form_Main : Office2007Form
+    public partial class FORM_Main : Office2007Form
     {
-        public Form_Main()
+        public FORM_Main()
         {
             InitializeComponent();
         }
@@ -26,11 +26,17 @@ namespace Huali
         private void Form_Main_Load(object sender, EventArgs e)
         {
             this.ribbonControl1.TitleText = ConfigHelper.ReadValueByKey(ConfigHelper.ConfigurationFile.AppConfig, "AppName");
-            //this.styleManager1.ManagerStyle = (eStyle)Enum.Parse(typeof(eStyle), ConfigHelper.ReadValueByKey(ConfigHelper.ConfigurationFile.AppConfig, "FormStyle"));
             //获取窗口样式
             GetStyleSetting();
             LoadModule();
-
+            FORM_Login login = new FORM_Login();
+            if (login.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+            }
+            else
+            {
+                this.Close();
+            }
         }
 
         /// <summary>
@@ -237,17 +243,17 @@ namespace Huali
 
         #endregion
 
-        private void buttonItem18_Click(object sender, EventArgs e)
+        private void ButtonItem18_Click(object sender, EventArgs e)
         {
             SetMdiForm("导入收货通知单", typeof(FORM_Import));
         }
 
-        private void buttonItem19_Click(object sender, EventArgs e)
+        private void ButtonItem19_Click(object sender, EventArgs e)
         {
             SetMdiForm("导出EDI数据", typeof(FORM_Export));
         }
 
-        private void buttonItem20_Click(object sender, EventArgs e)
+        private void ButtonItem20_Click(object sender, EventArgs e)
         {
             SetMdiForm("确认到货通知", typeof(FORM_POAcception));
         }

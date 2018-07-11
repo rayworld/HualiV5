@@ -30,7 +30,7 @@ namespace Ray.Framework.DBUtility
     public abstract class SqlHelper
     {
         // Hashtable to store cached parameters
-        private static Hashtable parmCache = Hashtable.Synchronized(new Hashtable());
+        private static readonly Hashtable parmCache = Hashtable.Synchronized(new Hashtable());
 
         #region ConnectionString
         /// <summary>
@@ -47,7 +47,7 @@ namespace Ray.Framework.DBUtility
                 connectionString = ConfigurationManager.ConnectionStrings[configName].ConnectionString;
                 return encryptable == true ? EncryptHelper.Decrypt(connectionString) : connectionString;
             }
-            catch (Exception ex)
+            catch
             {
                 throw new Exception("未能取得该名称的连接设置！");
             }

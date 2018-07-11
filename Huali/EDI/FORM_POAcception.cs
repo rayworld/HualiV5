@@ -4,7 +4,6 @@ using Ray.Framework.DBUtility;
 using System;
 using System.Data;
 using System.Text;
-using System.Windows.Forms;
 
 namespace Huali
 {
@@ -23,8 +22,11 @@ namespace Huali
         /// <param name="e"></param>
         private void Button1_Click(object sender, EventArgs e)
         {
-            string stockNames = "'CSW','CSW1','CSW5','RET','EPD','JWI','JQU','JDA'";
-            string stockName1 = "'CSW2','CSW3','CSW4'";
+            // 使用助记码
+            string stockNames = "'CSW','CSW1','RET','EPD','JWI','JQU','JDA'";
+            // 使用助记码2
+            string stockName1 = "'JQU1','EPD1','JDA1','JWI1','CSW2'";
+
             string AlconNo = textBox1 .Text ;
             StringBuilder cmdCP = new StringBuilder();
             cmdCP.Append(" SELECT  POInStock.FHeadSelfP0341 as ORNUM,	'O' as ORGRP,	'CV' as ORORIN,	POInStock.FDate as ORCDAT,	'O' as ORSELID,	'O' as ORBUYID,	'O' as ORSUNO,	'O' as ORSNAM,	'O' as ORSAD1,	'O' as ORSAD2,	'O' as ORSAD3,	'O' as ORSAD4,	'O' as ORCITY,	'O' as OROCTR,	POInStockEntry.FEntrySelfP0386 as OROLIN,	t_ICItem .FHelpCode  as ORPRDC,	POInStockEntry.fQty as ORRQTY,	'EA' as ORUOM,	t_Stock.FName  as ORSROM  ");

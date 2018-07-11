@@ -23,7 +23,7 @@ namespace Huali
             }
             else
             {
-                Application.Run(new Form_Main());
+                Application.Run(new FORM_Main());
             }
             
         }

@@ -7,9 +7,9 @@ namespace Huali.EDI.Model
     /// t_ICItem:实体类(属性说明自动提取数据库字段的描述信息)
     /// </summary>
     [Serializable]
-    public partial class t_ICItem
+    public partial class T_ICItem
     {
-        public t_ICItem()
+        public T_ICItem()
         { }
 
         #region Model

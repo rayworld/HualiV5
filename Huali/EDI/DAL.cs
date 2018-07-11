@@ -29,10 +29,10 @@ namespace Huali.EDI.DAL
         /// <summary>
         /// 得到一个对象实体
         /// </summary>
-        public Huali.EDI.Model.t_ICItem GetModel(string fAlconItemID)
+        public Huali.EDI.Model.T_ICItem GetModel(string fAlconItemID)
         {
             sql = "SELECT TOP 1 * FROM t_ICItem WHERE (FHelpCode = '" + fAlconItemID + "') OR (F_111 = '" + fAlconItemID + "')";
-            Huali.EDI.Model.t_ICItem model = new Huali.EDI.Model.t_ICItem();
+            Huali.EDI.Model.T_ICItem model = new Huali.EDI.Model.T_ICItem();
             DataTable dt = SqlHelper.ExecuteDataTable(SqlHelper.GetConnectionString("Kingdee"),sql);
             if (dt.Rows.Count > 0)
             {
@@ -48,9 +48,9 @@ namespace Huali.EDI.DAL
         /// <summary>
         /// 得到一个对象实体
         /// </summary>
-        public Huali.EDI.Model.t_ICItem DataRowToModel(DataRow row)
+        public Huali.EDI.Model.T_ICItem DataRowToModel(DataRow row)
         {
-            Huali.EDI.Model.t_ICItem model = new Huali.EDI.Model.t_ICItem();
+            Huali.EDI.Model.T_ICItem model = new Huali.EDI.Model.T_ICItem();
             if (row != null)
             {
                 if (row["FARAcctID"] != null && row["FARAcctID"].ToString() != "")

@@ -187,7 +187,7 @@ namespace Huali
             Huali.EDI.DAL.T_ICItem dalICItem = new EDI.DAL.T_ICItem();
             Huali.EDI.DAL.PoInStock dalPOInStock = new EDI.DAL.PoInStock();
             Huali.EDI.DAL.PoInStockEntry dalPOInStockEntry = new EDI.DAL.PoInStockEntry();
-            Huali.EDI.Model.t_ICItem mICItem = new EDI.Model.t_ICItem();
+            Huali.EDI.Model.T_ICItem mICItem = new EDI.Model.T_ICItem();
 
             for (int i = 0; i < dt.Rows.Count; i++)
             {
@@ -316,7 +316,7 @@ namespace Huali
             Huali.EDI.DAL.PoInStock dalPOInStock = new EDI.DAL.PoInStock();
             Huali.EDI.DAL.PoInStockEntry dalPOInStockEntry = new EDI.DAL.PoInStockEntry();
             Huali.EDI.DAL.T_AuxItem dalAuxItem = new T_AuxItem();
-            Huali.EDI.Model.t_ICItem mICItem = new EDI.Model.t_ICItem();
+            Huali.EDI.Model.T_ICItem mICItem = new EDI.Model.T_ICItem();
 
             for (int i = 0; i < dt.Rows.Count; i++)
             {
@@ -445,5 +445,6 @@ namespace Huali
         #endregion
 
         #endregion
+        
     }
 }
