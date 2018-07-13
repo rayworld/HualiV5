@@ -1,19 +1,16 @@
-﻿using System;
+﻿using DevComponents.DotNetBar;
+using Ray.Framework.DBUtility;
+using System;
 using System.Data;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
 
-using DevComponents.DotNetBar;
-using Ray.Framework.Config;
-using Ray.Framework.DBUtility;
-using Ray.Framework.Encrypt;
-
 namespace Huali
 {
-    public partial class FORM_Export : Office2007Form
+    public partial class FrmExport : Office2007Form
     {
-        public FORM_Export()
+        public FrmExport()
         {
             InitializeComponent();
         }
@@ -179,7 +176,7 @@ namespace Huali
                 this.dataGridView1.Refresh();
             }
 
-            string fileName = path + "CNHUALI2D" + expType + getForamteDate("fileName") + ".txt";
+            string fileName = path + "CNHUALI2D" + expType + GetForamteDate("fileName") + ".txt";
             ExpKindeeData2Text(fileName, dt, expType);
 
             //.ToolStripStatusLabel1.Text = "数据导出已完成！";
@@ -239,7 +236,7 @@ namespace Huali
                     //写头信息
                     string CORCID = "MSGHDR".PadRight(10);
                     string COLINE = "1".PadLeft(15, '0');
-                    string COFDATCOFTIM = getForamteDate("fullDate");
+                    string COFDATCOFTIM = GetForamteDate("fullDate");
                     string COSRCN = "CNHUALI".PadRight(10);
                     m_streamWriter.Write(CORCID + COLINE + COFDATCOFTIM + COSRCN);
                     m_streamWriter.WriteLine();
@@ -438,7 +435,7 @@ namespace Huali
             fs.Close();
         }
 
-        private string getForamteDate(string dateType)
+        private string GetForamteDate(string dateType)
         {
             string retVal;
             switch (dateType)

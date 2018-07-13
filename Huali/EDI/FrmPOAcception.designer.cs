@@ -1,6 +1,6 @@
 ﻿namespace Huali
 {
-    partial class FORM_POAcception
+    partial class FrmPOAcception
     {
         /// <summary>
         /// Required designer variable.

@@ -2,7 +2,6 @@
 using System.Data;
 using System.Data.OleDb;
 using System.IO;
-using System.Windows.Forms;
 
 namespace Ray.Framework.Converter
 {
@@ -170,7 +169,7 @@ namespace Ray.Framework.Converter
         /// </summary>
         /// <param name="m_DataTable">要导出的数据表</param>
         /// <param name="m_ExcelFileName">导出的Excel文件名</param>
-        public void Data2Excel(DataTable m_DataTable, string m_ExcelFileName)
+        public static void Data2Excel(DataTable m_DataTable, string m_ExcelFileName)
         {
             if (File.Exists(m_ExcelFileName))
                 File.Delete(m_ExcelFileName);

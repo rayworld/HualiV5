@@ -1,6 +1,6 @@
 ﻿namespace Huali
 {
-    partial class FORM_Login
+    partial class FrmLogin
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FORM_Login));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLogin));
             this.styleManager1 = new DevComponents.DotNetBar.StyleManager(this.components);
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.txtUserName = new DevComponents.DotNetBar.Controls.TextBoxX();

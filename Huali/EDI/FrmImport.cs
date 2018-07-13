@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace Huali
 {
-    public partial class FORM_Import : Office2007Form
+    public partial class FrmImport : Office2007Form
     {
-        public FORM_Import()
+        public FrmImport()
         {
             InitializeComponent();
         }

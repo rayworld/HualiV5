@@ -54,75 +54,160 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CheckMailStat\FORM_CheckQRCodeState.cs">
+    <Compile Include="CheckMailStat\FrmCheckQRCodeState.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CheckMailStat\FORM_CheckQRCodeState.Designer.cs">
-      <DependentUpon>FORM_CheckQRCodeState.cs</DependentUpon>
+    <Compile Include="CheckMailStat\FrmCheckQRCodeState.Designer.cs">
+      <DependentUpon>FrmCheckQRCodeState.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DS9208\FrmQueryByBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DS9208\FrmQueryByBill.designer.cs">
+      <DependentUpon>FrmQueryByBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DS9208\FrmQueryFinishedBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DS9208\FrmQueryFinishedBill.designer.cs">
+      <DependentUpon>FrmQueryFinishedBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DS9208\FrmImportBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DS9208\FrmImportBill.designer.cs">
+      <DependentUpon>FrmImportBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DS9208\FrmQRCodeScan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DS9208\FrmQRCodeScan.designer.cs">
+      <DependentUpon>FrmQRCodeScan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DS9208\FrmQueryByQRCode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DS9208\FrmQueryByQRCode.designer.cs">
+      <DependentUpon>FrmQueryByQRCode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DS9208\FrmDeleteByQRCode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DS9208\FrmDeleteByQRCode.designer.cs">
+      <DependentUpon>FrmDeleteByQRCode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DS9208\FrmDeleteByBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DS9208\FrmDeleteByBill.designer.cs">
+      <DependentUpon>FrmDeleteByBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DS9208\FrmStatistics.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DS9208\FrmStatistics.designer.cs">
+      <DependentUpon>FrmStatistics.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DS9208\FrmQueryBill3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DS9208\FrmQueryBill3.designer.cs">
+      <DependentUpon>FrmQueryBill3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utils.cs" />
+    <Compile Include="DS9208\FrmBuildQRCode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DS9208\FrmBuildQRCode.designer.cs">
+      <DependentUpon>FrmBuildQRCode.cs</DependentUpon>
     </Compile>
     <Compile Include="EDI2\DAL.cs" />
-    <Compile Include="EDI2\FORM_EDI2_SEOutStock.cs">
+    <Compile Include="EDI2\FrmSEOutStock.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EDI2\FORM_EDI2_SEOutStock.designer.cs">
-      <DependentUpon>FORM_EDI2_SEOutStock.cs</DependentUpon>
+    <Compile Include="EDI2\FrmSEOutStock.designer.cs">
+      <DependentUpon>FrmSEOutStock.cs</DependentUpon>
     </Compile>
     <Compile Include="EDI2\Models.cs" />
     <Compile Include="EDI\DAL.cs" />
     <Compile Include="EDI\Enums.cs" />
-    <Compile Include="EDI\FORM_Export.cs">
+    <Compile Include="EDI\FrmExport.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EDI\FORM_Export.designer.cs">
-      <DependentUpon>FORM_Export.cs</DependentUpon>
+    <Compile Include="EDI\FrmExport.designer.cs">
+      <DependentUpon>FrmExport.cs</DependentUpon>
     </Compile>
-    <Compile Include="EDI\FORM_Import.cs">
+    <Compile Include="EDI\FrmImport.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EDI\FORM_Import.designer.cs">
-      <DependentUpon>FORM_Import.cs</DependentUpon>
+    <Compile Include="EDI\FrmImport.designer.cs">
+      <DependentUpon>FrmImport.cs</DependentUpon>
     </Compile>
-    <Compile Include="EDI\FORM_POAcception.cs">
+    <Compile Include="EDI\FrmPOAcception.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EDI\FORM_POAcception.designer.cs">
-      <DependentUpon>FORM_POAcception.cs</DependentUpon>
+    <Compile Include="EDI\FrmPOAcception.designer.cs">
+      <DependentUpon>FrmPOAcception.cs</DependentUpon>
     </Compile>
     <Compile Include="EDI\Models.cs" />
-    <Compile Include="FORM_Main.cs">
+    <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FORM_Main.designer.cs">
-      <DependentUpon>FORM_Main.cs</DependentUpon>
+    <Compile Include="FrmMain.designer.cs">
+      <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="FORM_Login.cs">
+    <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FORM_Login.designer.cs">
-      <DependentUpon>FORM_Login.cs</DependentUpon>
+    <Compile Include="FrmLogin.designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="CheckMailStat\FORM_CheckQRCodeState.resx">
-      <DependentUpon>FORM_CheckQRCodeState.cs</DependentUpon>
+    <EmbeddedResource Include="CheckMailStat\FrmCheckQRCodeState.resx">
+      <DependentUpon>FrmCheckQRCodeState.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EDI2\FORM_EDI2_SEOutStock.resx">
-      <DependentUpon>FORM_EDI2_SEOutStock.cs</DependentUpon>
+    <EmbeddedResource Include="DS9208\FrmDeleteByQRCode.resx">
+      <DependentUpon>FrmDeleteByQRCode.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EDI\FORM_Export.resx">
-      <DependentUpon>FORM_Export.cs</DependentUpon>
+    <EmbeddedResource Include="DS9208\FrmQueryByBill.resx">
+      <DependentUpon>FrmQueryByBill.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EDI\FORM_Import.resx">
-      <DependentUpon>FORM_Import.cs</DependentUpon>
+    <EmbeddedResource Include="DS9208\FrmQueryByQRCode.resx">
+      <DependentUpon>FrmQueryByQRCode.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EDI\FORM_POAcception.resx">
-      <DependentUpon>FORM_POAcception.cs</DependentUpon>
+    <EmbeddedResource Include="DS9208\FrmQRCodeScan.resx">
+      <DependentUpon>FrmQRCodeScan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FORM_Main.resx">
-      <DependentUpon>FORM_Main.cs</DependentUpon>
+    <EmbeddedResource Include="DS9208\FrmQueryFinishedBill.resx">
+      <DependentUpon>FrmQueryFinishedBill.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FORM_Login.resx">
-      <DependentUpon>FORM_Login.cs</DependentUpon>
+    <EmbeddedResource Include="DS9208\FrmStatistics.resx">
+      <DependentUpon>FrmStatistics.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DS9208\FrmBuildQRCode.resx">
+      <DependentUpon>FrmBuildQRCode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DS9208\FrmQueryBill3.resx">
+      <DependentUpon>FrmQueryBill3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EDI2\FrmSEOutStock.resx">
+      <DependentUpon>FrmSEOutStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EDI\FrmExport.resx">
+      <DependentUpon>FrmExport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EDI\FrmImport.resx">
+      <DependentUpon>FrmImport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EDI\FrmPOAcception.resx">
+      <DependentUpon>FrmPOAcception.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMain.resx">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -145,9 +230,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DS9208\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Ray.Framework.Config\Ray.Framework.Config.csproj">
       <Project>{ba7cb68d-f2a6-4681-9d35-bd55d405f768}</Project>

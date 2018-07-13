@@ -1,6 +1,6 @@
-namespace Huali
+namespace Huali.CheckMailStat
 {
-    partial class FORM_CheckQRCodeState
+    partial class FrmCheckQRCodeState
     {
 
         /// <summary>

@@ -1,17 +1,15 @@
 ﻿using DevComponents.DotNetBar;
 using DevComponents.DotNetBar.Controls;
-using Ray.Framework.Config;
-using Ray.Framework.DBUtility;
-using Ray.Framework.Encrypt;
 using Huali.EDI.DAL;
+using Ray.Framework.Config;
 using System;
 using System.Windows.Forms;
 
 namespace Huali
 {
-    public partial class FORM_Login : Office2007Form
+    public partial class FrmLogin : Office2007Form
     {
-        public FORM_Login()
+        public FrmLogin()
         {
             InitializeComponent();
         }
@@ -34,6 +32,7 @@ namespace Huali
             txtUserName.Text = "Administrator";
             txtPassword.Text = "kingdee";
             txtPassword.PasswordChar = '*';
+            this.DialogResult = System.Windows.Forms.DialogResult.OK;
         }
 
         /// <summary>
@@ -43,16 +42,16 @@ namespace Huali
         /// <param name="e"></param>
         private void BtnOK_Click(object sender, EventArgs e)
         {
-            if (UserLogin(txtUserName.Text, txtPassword.Text) == true)
-            {
-                this.DialogResult = System.Windows.Forms.DialogResult.OK;
-                this.Close();
-            }
-            else
-            {
-                this.DialogResult = System.Windows.Forms.DialogResult.None;
-                DesktopAlert.Show("<h2>" + "账号或密码错误，请重新输入!" + "</h2>");
-            }
+            //if (UserLogin(txtUserName.Text, txtPassword.Text) == true)
+            //{
+            //    this.DialogResult = System.Windows.Forms.DialogResult.OK;
+            //    this.Close();
+            //}
+            //else
+            //{
+            //    this.DialogResult = System.Windows.Forms.DialogResult.None;
+            //    DesktopAlert.Show("<h2>" + "账号或密码错误，请重新输入!" + "</h2>");
+            //}
         }
 
         /// <summary>

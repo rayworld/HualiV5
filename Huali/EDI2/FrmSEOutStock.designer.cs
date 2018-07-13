@@ -1,6 +1,6 @@
 namespace Huali
 {
-    partial class FORM_EDI2_SEOutStock
+    partial class FrmSEOutStock
     {
         /// <summary>
         /// Required designer variable.

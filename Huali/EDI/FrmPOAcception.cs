@@ -7,9 +7,9 @@ using System.Text;
 
 namespace Huali
 {
-    public partial class FORM_POAcception : Office2007Form 
+    public partial class FrmPOAcception : Office2007Form 
     {
-        public FORM_POAcception()
+        public FrmPOAcception()
         {
             InitializeComponent();
         }

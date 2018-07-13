@@ -1,6 +1,6 @@
 ﻿namespace Huali
 {
-    partial class FORM_Import
+    partial class FrmImport
     {
         /// <summary>
         /// 必需的设计器变量。

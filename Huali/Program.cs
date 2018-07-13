@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Windows.Forms;
+﻿using Huali.CheckMailStat;
 using Ray.Framework.Config;
+using System;
+using System.Windows.Forms;
 
 namespace Huali
 {
@@ -19,11 +18,11 @@ namespace Huali
             string modelName = ConfigHelper.ReadValueByKey(ConfigHelper.ConfigurationFile.AppConfig, "ModelName");
             if (modelName.ToLower() == "checkmailstat")
             {
-                Application.Run(new FORM_CheckQRCodeState());
+                Application.Run(new FrmCheckQRCodeState());
             }
             else
             {
-                Application.Run(new FORM_Main());
+                Application.Run(new FrmMain());
             }
             
         }

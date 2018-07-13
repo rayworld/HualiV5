@@ -1,6 +1,6 @@
 ﻿namespace Huali
 {
-    partial class FORM_Export
+    partial class FrmExport
     {
         /// <summary>
         /// Required designer variable.

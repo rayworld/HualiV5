@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace Huali
 {
-    public partial class FORM_Main : Office2007Form
+    public partial class FrmMain : Office2007Form
     {
-        public FORM_Main()
+        public FrmMain()
         {
             InitializeComponent();
         }
@@ -29,7 +29,7 @@ namespace Huali
             //获取窗口样式
             GetStyleSetting();
             LoadModule();
-            FORM_Login login = new FORM_Login();
+            FrmLogin login = new FrmLogin();
             if (login.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
             }
@@ -120,6 +120,7 @@ namespace Huali
             ConfigHelper.UpdateOrCreateAppSetting(ConfigHelper.ConfigurationFile.AppConfig, "FormStyle", source.CommandParameter.ToString());
         }
 
+        #region EDI2
         /// <summary>
         /// 日立订单导入
         /// </summary>
@@ -127,7 +128,7 @@ namespace Huali
         /// <param name="e"></param>
         private void ButtonItem14_Click(object sender, EventArgs e)
         {
-            SetMdiForm("日立订单导入", typeof(FORM_EDI2_SEOutStock));
+            SetMdiForm("日立订单导入", typeof(FrmSEOutStock));
         }
         /// <summary>
         /// 其它订单导入
@@ -136,8 +137,84 @@ namespace Huali
         /// <param name="e"></param>
         private void ButtonItem15_Click(object sender, EventArgs e)
         {
-            SetMdiForm("其它订单导入", typeof(FORM_EDI2_SEOutStock));
+            SetMdiForm("其它订单导入", typeof(FrmSEOutStock));
         }
+        #endregion
+
+        #region EDI
+
+        private void ButtonItem18_Click(object sender, EventArgs e)
+        {
+            SetMdiForm("导入收货通知单", typeof(FrmImport));
+        }
+
+        private void ButtonItem19_Click(object sender, EventArgs e)
+        {
+            SetMdiForm("导出EDI数据", typeof(FrmExport));
+        }
+
+        private void ButtonItem20_Click(object sender, EventArgs e)
+        {
+            SetMdiForm("确认到货通知", typeof(FrmPOAcception));
+        }
+        #endregion
+
+        #region DS9208
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ButtonItem30_Click(object sender, EventArgs e)
+        {
+            SetMdiForm("二维码统计", typeof(FrmStatistics));
+        }
+
+        private void ButtonItem25_Click(object sender, EventArgs e)
+        {
+            SetMdiForm("所有扫过码的单", typeof(FrmQueryFinishedBill));
+        }
+
+        private void ButtonItem26_Click(object sender, EventArgs e)
+        {
+            SetMdiForm("单据完成情况", typeof(FrmQueryBill3));
+        }
+
+        private void ButtonItem29_Click(object sender, EventArgs e)
+        {
+            SetMdiForm("删除二维码", typeof(FrmDeleteByQRCode));
+        }
+
+        private void ButtonItem28_Click(object sender, EventArgs e)
+        {
+            SetMdiForm("删除单据", typeof(FrmDeleteByBill));
+        }
+
+        private void ButtonItem27_Click(object sender, EventArgs e)
+        {
+            SetMdiForm("导入单据", typeof(FrmImportBill));
+        }
+
+        private void ButtonItem24_Click(object sender, EventArgs e)
+        {
+            SetMdiForm("按二维码查询", typeof(FrmQueryByQRCode));
+        }
+
+        private void ButtonItem23_Click(object sender, EventArgs e)
+        {
+            SetMdiForm("按订单查询", typeof(FrmQueryByBill));
+        }
+
+        private void ButtonItem21_Click(object sender, EventArgs e)
+        {
+            SetMdiForm("生成二维码", typeof(FrmBuildQRCode));
+        }
+
+        private void ButtonItem22_Click(object sender, EventArgs e)
+        {
+            SetMdiForm("扫描二维码", typeof(FrmQRCodeScan));
+        }
+        #endregion
 
         #endregion
 
@@ -243,20 +320,7 @@ namespace Huali
 
         #endregion
 
-        private void ButtonItem18_Click(object sender, EventArgs e)
-        {
-            SetMdiForm("导入收货通知单", typeof(FORM_Import));
-        }
 
-        private void ButtonItem19_Click(object sender, EventArgs e)
-        {
-            SetMdiForm("导出EDI数据", typeof(FORM_Export));
-        }
-
-        private void ButtonItem20_Click(object sender, EventArgs e)
-        {
-            SetMdiForm("确认到货通知", typeof(FORM_POAcception));
-        }
     }
     public enum ModuleName
     {

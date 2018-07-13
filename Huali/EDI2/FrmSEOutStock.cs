@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace Huali
 {
-    public partial class FORM_EDI2_SEOutStock : Office2007Form
+    public partial class FrmSEOutStock : Office2007Form
     {
-        public FORM_EDI2_SEOutStock()
+        public FrmSEOutStock()
         {
             InitializeComponent();
         }
