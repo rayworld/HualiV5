@@ -14,6 +14,7 @@ namespace Huali.DS9208
         }
         string sql = "";
         DataTable dt = new DataTable();
+        private static readonly string conn = SqlHelper.GetConnectionString("ALiCloud");
 
         private void ButtonX1_Click(object sender, EventArgs e)
         {
@@ -22,7 +23,7 @@ namespace Huali.DS9208
             if (startDate != "0001-01-01" && endDate != "0001-01-01")
             {
                 sql = string.Format("SELECT [日期],[购货单位],[单据编号],sum([实发数量]) as 应扫数量, sum([FActQty]) as 实扫数量  FROM [dbo].[icstock]  where [日期] >= '{0} 00:00:00' and [日期] <= '{1} 23:59:59' and [实发数量] > 0 and [产品编号] Like '02%' group by [日期],[购货单位],[单据编号] order by [日期],[购货单位],[单据编号]", startDate, endDate);
-                dt = SqlHelper.ExecuteDataTable(SqlHelper.GetConnectionString("ALiClouds"),sql);
+                dt = SqlHelper.ExecuteDataTable(conn,sql);
                 dataGridViewX1.DataSource = dt;
                 dataGridViewX1.Columns["购货单位"].Width = 300;
                 dataGridViewX1.Columns["日期"].Width = 200;

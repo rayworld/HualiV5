@@ -14,6 +14,8 @@ namespace Huali.EDI2.DAL
     public partial class SEOutStock
     {
         string sql = "";
+        private static readonly string conn = SqlHelper.GetConnectionString("Kingdee");
+
 
         public SEOutStock()
         { }
@@ -166,7 +168,7 @@ namespace Huali.EDI2.DAL
             parameters[61].Value = model.FHeadSelfS0247;
             parameters[62].Value = DBNull.Value;
 
-            int rows = SqlHelper.ExecuteNonQuery(SqlHelper.GetConnectionString("kingdee"), strSql.ToString(), parameters);
+            int rows = SqlHelper.ExecuteNonQuery(conn, strSql.ToString(), parameters);
             if (rows > 0)
             {
                 return true;
@@ -188,7 +190,7 @@ namespace Huali.EDI2.DAL
         public string GetMaxFBillNo()
         {
             sql = string.Format("SELECT MAX(FBillNo) FROM SEOutStock WHERE FBillNo LIKE 'DROut%'");
-            object obj = SqlHelper.ExecuteScalar(SqlHelper.GetConnectionString("kingdee"), sql);
+            object obj = SqlHelper.ExecuteScalar(conn, sql);
             string currBillNo = "";
             currBillNo = obj.ToString() == "" ? "DROut000000" : obj.ToString();
 
@@ -202,10 +204,10 @@ namespace Huali.EDI2.DAL
         public int GetMaxFInterID()
         {
             sql = string.Format("UPDATE ICMaxNum SET FMaxNum = FMaxNum + 1 WHERE FTableName = 'SEOutStock'");
-            if (SqlHelper.ExecuteNonQuery(SqlHelper.GetConnectionString("kingdee"),sql) > 0)
+            if (SqlHelper.ExecuteNonQuery(conn,sql) > 0)
             {
                 sql = "SELECT FMaxNum FROM ICMaxNum WHERE FTableName = 'SEOutStock'";
-                object obj = SqlHelper.ExecuteScalar(SqlHelper.GetConnectionString("kingdee"), sql);
+                object obj = SqlHelper.ExecuteScalar(conn, sql);
                 return obj != null ? int.Parse(obj.ToString()) : 0;
             }
             return 0;
@@ -224,6 +226,8 @@ namespace Huali.EDI2.DAL
     /// </summary>
     public partial class SEOutStockEntry
     {
+        private static readonly string conn = SqlHelper.GetConnectionString("Kingdee");
+
         public SEOutStockEntry()
         { }
         #region  BasicMethod
@@ -395,7 +399,7 @@ namespace Huali.EDI2.DAL
             //parameters[65].Value = model.FEntrySelfS1236;
             parameters[65].Value = DBNull.Value;
 
-            int rows = SqlHelper.ExecuteNonQuery(SqlHelper.GetConnectionString("kingdee"), strSql.ToString(), parameters);
+            int rows = SqlHelper.ExecuteNonQuery(conn, strSql.ToString(), parameters);
             if (rows > 0 )
             {
                 return true;
@@ -418,7 +422,7 @@ namespace Huali.EDI2.DAL
         public int GetInterIDByFName(string fName)
         {
             string sql = string.Format("select FInterID from t_SubMessage where FName = '{0}'", fName);
-            object obj = SqlHelper.ExecuteScalar(SqlHelper.GetConnectionString("kingdee"), sql);
+            object obj = SqlHelper.ExecuteScalar(conn, sql);
             return obj != null ? int.Parse(obj.ToString()) : 0;
         }
 
@@ -435,7 +439,9 @@ namespace Huali.EDI2.DAL
 	/// </summary>
 	public partial class T_ICItem
 	{
-		public T_ICItem()
+        private static readonly string conn = SqlHelper.GetConnectionString("Kingdee");
+
+        public T_ICItem()
 		{}
 		#region  BasicMethod
 
@@ -451,7 +457,7 @@ namespace Huali.EDI2.DAL
 			{
 				strSql.Append(" where "+strWhere);
 			}
-			return SqlHelper.ExecuteDataTable(SqlHelper.GetConnectionString("kingdee"), strSql.ToString());
+			return SqlHelper.ExecuteDataTable(conn, strSql.ToString());
 		}
 
 		/// <summary>
@@ -472,7 +478,7 @@ namespace Huali.EDI2.DAL
 				strSql.Append(" where "+strWhere);
 			}
 			strSql.Append(" order by " + filedOrder);
-			return SqlHelper.ExecuteDataTable(SqlHelper.GetConnectionString("kingdee"), strSql.ToString());
+			return SqlHelper.ExecuteDataTable(conn, strSql.ToString());
 		}
 
 		/// <summary>
@@ -486,7 +492,7 @@ namespace Huali.EDI2.DAL
 			{
 				strSql.Append(" where "+strWhere);
 			}
-			object obj = SqlHelper.ExecuteScalar(SqlHelper.GetConnectionString("kingdee"), strSql.ToString());
+			object obj = SqlHelper.ExecuteScalar(conn, strSql.ToString());
 			if (obj == null)
 			{
 				return 0;
@@ -519,7 +525,7 @@ namespace Huali.EDI2.DAL
 			}
 			strSql.Append(" ) TT");
 			strSql.AppendFormat(" WHERE TT.Row between {0} and {1}", startIndex, endIndex);
-			return SqlHelper.ExecuteDataTable(SqlHelper.GetConnectionString("kingdee"), strSql.ToString());
+			return SqlHelper.ExecuteDataTable(conn, strSql.ToString());
 		}
 
 		#endregion  BasicMethod
@@ -534,7 +540,7 @@ namespace Huali.EDI2.DAL
         public int GetItemIDByFNameFnumber(string fNumber,string fName)
         {
             string sql = string.Format("SELECT FItemID FROM t_icitem WHERE FNumber LIKE  '{0}%' AND RIGHT(FName, 4) = '{1}'",fNumber,fName.PadLeft(4,'0'));
-            object obj = SqlHelper.ExecuteScalar(SqlHelper.GetConnectionString("kingdee"), sql);
+            object obj = SqlHelper.ExecuteScalar(conn, sql);
             return obj != null ? int.Parse(obj.ToString()) : 0;
         }
 
@@ -547,7 +553,7 @@ namespace Huali.EDI2.DAL
         public int GetItemIDBySKU(string sku)
         {
             string sql = string.Format("SELECT FItemID FROM t_icitem WHERE FHelpCode = '{0}' or F_111 = '{0}'", sku);
-            object obj = SqlHelper.ExecuteScalar(SqlHelper.GetConnectionString("kingdee"), sql);
+            object obj = SqlHelper.ExecuteScalar(conn, sql);
             return obj != null ? int.Parse(obj.ToString()) : 0;
         }
 
@@ -559,7 +565,7 @@ namespace Huali.EDI2.DAL
         public int GetCustIDByFnumber(string fNumber)
         {
             string sql = string.Format("SELECT fItemID FROM t_Organization WHERE FNumber = '{0}'",fNumber);
-            object obj = SqlHelper.ExecuteScalar(SqlHelper.GetConnectionString("kingdee"), sql);
+            object obj = SqlHelper.ExecuteScalar(conn, sql);
             return obj != null ? int.Parse(obj.ToString()) : 0;
         }
 
@@ -571,7 +577,7 @@ namespace Huali.EDI2.DAL
         public int GetStockIDByFName(string fname)
         {
             string sql = string.Format("SELECT fItemID FROM t_stock WHERE t_stock.FName = '{0}'", fname);
-            object obj = SqlHelper.ExecuteScalar(SqlHelper.GetConnectionString("kingdee"), sql);
+            object obj = SqlHelper.ExecuteScalar(conn, sql);
             return obj != null ? int.Parse(obj.ToString()) : 0;
         }
 
@@ -583,7 +589,7 @@ namespace Huali.EDI2.DAL
         public decimal GetSalePriceByFItemID(int itemId)
         {
             string sql = string.Format("SELECT FSalePrice FROM t_icitem WHERE FItemID = {0}",itemId);
-            object obj = SqlHelper.ExecuteScalar(SqlHelper.GetConnectionString("kingdee"), sql);
+            object obj = SqlHelper.ExecuteScalar(conn, sql);
             return obj != null ? decimal.Parse(obj.ToString()) : 0;
         }
 
@@ -595,7 +601,7 @@ namespace Huali.EDI2.DAL
         public int GetUnitIDByitemID(int itemid)
         {
             string sql = string.Format("SELECT FUnitID FROM t_ICItem WHERE  FItemID = {0}", itemid);
-            object obj = SqlHelper.ExecuteScalar(SqlHelper.GetConnectionString("kingdee"), sql);
+            object obj = SqlHelper.ExecuteScalar(conn, sql);
             return obj != null ? int.Parse(obj.ToString()) : 0;
         }
 

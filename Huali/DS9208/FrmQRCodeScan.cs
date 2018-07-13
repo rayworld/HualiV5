@@ -17,6 +17,7 @@ namespace Huali.DS9208
 
         string mingQRCodes = "";
         string sql = "";
+        private static readonly string conn = SqlHelper.GetConnectionString("ALiCloud");
 
         DataTable dt = (DataTable)null;
        
@@ -46,20 +47,20 @@ namespace Huali.DS9208
                     //收到单据分录信息
                     //int recCount = int.Parse(SqlHelper.GetSingle("select count(*) from icstock where [单据编号] ='" + billNo + "' and [FActQty] < [实发数量]",null).ToString());
                     sql = string.Format("SELECT COUNT(*) FROM icstock WHERE [单据编号] ='{0}' AND [FActQty] < [实发数量]", billNo);
-                    object obj = SqlHelper.ExecuteScalar(sql);
+                    object obj = SqlHelper.ExecuteScalar(conn, sql);
                     int recCount = obj != null ? int.Parse(obj.ToString()) : 0;
                     if (recCount > 0)
                     {
                         //DataTable dtmaster = SqlHelper.ExcuteDataTable("select top 1 [日期],[购货单位],[发货仓库],[摘要] from icstock where [单据编号] ='" + billNo + "' and [FActQty] < [实发数量]");
                         sql = string.Format("SELECT TOP 1 [日期],[购货单位],[发货仓库],[摘要] FROM icstock WHERE [单据编号] ='{0}' AND [FActQty] < [实发数量]", billNo);
-                        DataTable dtmaster = SqlHelper.ExecuteDataTable(sql);
+                        DataTable dtmaster = SqlHelper.ExecuteDataTable(conn, sql);
                         textBoxX2.Text = dtmaster.Rows[0][0].ToString();
                         textBoxX3.Text = dtmaster.Rows[0][1].ToString();
                         textBoxX4.Text = dtmaster.Rows[0][2].ToString();
 
                         //dt = SqlHelper.ExcuteDataTable("select [fEntryID] as 分录号,[产品名称],[批号],[实发数量] as 应发,[FActQty] as 实发  from icstock where [单据编号] ='" + billNo + "' and [FActQty] < [实发数量] order by fEntryID");
                         sql = string.Format("SELECT [fEntryID] AS 分录号,[产品名称],[批号],[实发数量] AS 应发,[FActQty] AS 实发  FROM icstock WHERE [单据编号] ='{0}' AND [FActQty] < [实发数量] ORDER BY fEntryID", billNo);
-                        dt = SqlHelper.ExecuteDataTable(sql);
+                        dt = SqlHelper.ExecuteDataTable(conn, sql);
                         dataGridViewX1.DataSource = dt;
                         DataGridViewCheckBoxColumn newColumn = new DataGridViewCheckBoxColumn
                         {
@@ -261,7 +262,7 @@ namespace Huali.DS9208
             string EntryNo = billNo + EntryID.PadLeft(4, '0');
             //return SqlHelper.ExecuteSql("INSERT INTO [" + tableName + "] ([FQRCode],[FEntryID]) VALUES('" + mingQRCode + "','" + EntryNo + "')");
             sql = string.Format("INSERT INTO [{0}] ([FQRCode],[FEntryID]) VALUES('{1}','{2}')", tableName, mingQRCode, EntryNo);
-            return SqlHelper.ExecuteNonQuery(sql);
+            return SqlHelper.ExecuteNonQuery(conn, sql);
         }
 
         /// <summary>
@@ -274,7 +275,7 @@ namespace Huali.DS9208
         {
             //return SqlHelper.ExecuteSql("UPDATE [icstock] SET [FActQty] = [FActQty] + 1 WHERE  [单据编号] = '" + billNo + "' and  [FEntryID] =" + EntryID);
             sql = string.Format("UPDATE [icstock] SET [FActQty] = [FActQty] + 1 WHERE  [单据编号] = '{0}' AND [FEntryID] = {1}" , billNo, EntryID.ToString());
-            return SqlHelper.ExecuteNonQuery(sql);
+            return SqlHelper.ExecuteNonQuery(conn, sql);
         }
 
         #endregion

@@ -18,7 +18,7 @@ namespace Huali.CheckMailStat
         {
             InitializeComponent();
         }
-
+        
         private static string serverName = "pop.sina.com";
         private static int pop3Port = 110;
         private static string loginName = "hualiapi";
@@ -29,7 +29,7 @@ namespace Huali.CheckMailStat
         POP3_Client pop3 = new POP3_Client();
         POP3_ClientMessage message = (POP3_ClientMessage)null;
         ListViewItem lviMail = new ListViewItem();
-
+        private static readonly string conn = SqlHelper.GetConnectionString("ALiCloud");
 
         private void Form3_Load(object sender, EventArgs e)
         {
@@ -220,31 +220,31 @@ namespace Huali.CheckMailStat
                             if (tableName == "")
                             {
                                 sql = string.Format("INSERT INTO [dbo].[CheckLog]([FStoreId], [FCustomId], [FQRCode], [FQRCodeMing], [FStatus], [FRem], [FCheckResult]) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", model.StoreId, model.CustomId, model.QRCode, model.QRCodeMing, model.CheckState, model.Memo, "失败：二维码未识别");
-                                SqlHelper.ExecuteNonQuery(sql);
+                                SqlHelper.ExecuteNonQuery(conn, sql);
                             }
                             else if (Exist(model.QRCodeMing) == false)
                             {
                                 sql = string.Format("INSERT INTO [dbo].[CheckLog]([FStoreId], [FCustomId], [FQRCode], [FQRCodeMing], [FStatus], [FRem], [FCheckResult]) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", model.StoreId, model.CustomId, model.QRCode, model.QRCodeMing, model.CheckState, model.Memo, "成功：二维码不存在");
-                                SqlHelper.ExecuteNonQuery(sql);
+                                SqlHelper.ExecuteNonQuery(conn, sql);
 
                                 ///2018-06-01 产品核销如果二维码不存在，将二维码添加到QRCode表，并更新icstock表
                                 ///2018-06-01 写QRCode表
                                 sql = string.Format("INSERT INTO [dbo].[t_QRCode{0}] ([FQRCode], [FEntryID], [FState]) VALUES ('{1}','{2}','{3}')", tableName, model.QRCodeMing, "HOut0000000001",model.CheckState);
-                                SqlHelper.ExecuteNonQuery(sql);
+                                SqlHelper.ExecuteNonQuery(conn, sql);
 
                                 //2018-06-01 更新ICStock表信息
                                 sql = string.Format("update [dbo].[icstock] set [FActQty]= [FActQty] + 1 where [单据编号]= 'HOut000000' and [FEntryID] = 1");
-                                SqlHelper.ExecuteNonQuery(sql);
+                                SqlHelper.ExecuteNonQuery(conn, sql);
 
                             }
                             else
                             {
                                 sql = string.Format("update [dbo].[t_QRCode{0}] set [FState] = '{1}' Where FQRCode = '{2}'", tableName, model.CheckState, model.QRCodeMing);
-                                int res = SqlHelper.ExecuteNonQuery(sql);
+                                int res = SqlHelper.ExecuteNonQuery(conn, sql);
                                 if (res > 0)
                                 {
                                     sql = string.Format("INSERT INTO [dbo].[CheckLog]([FStoreId], [FCustomId], [FQRCode], [FQRCodeMing], [FStatus], [FRem], [FCheckResult]) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", model.StoreId, model.CustomId, model.QRCode, model.QRCodeMing, model.CheckState, model.Memo, "成功");
-                                    SqlHelper.ExecuteNonQuery(sql);
+                                    SqlHelper.ExecuteNonQuery(conn, sql);
                                     recCount++;
                                 }
                             }
@@ -281,7 +281,7 @@ namespace Huali.CheckMailStat
         {
             string tableName = qrcodeming.Substring(0, 4);
             string sql = string.Format("SELECT COUNT(*) FROM t_QRCode{0} WHERE FQRCode = {1}", tableName, qrcodeming);
-            object obj = SqlHelper.ExecuteScalar(sql);
+            object obj = SqlHelper.ExecuteScalar(conn, sql);
             return obj != null && int.Parse(obj.ToString()) > 0 ? true : false;
         }
 

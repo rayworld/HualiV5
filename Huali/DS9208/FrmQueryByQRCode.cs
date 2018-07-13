@@ -16,6 +16,7 @@ namespace Huali.DS9208
         DataTable dt = new DataTable();
         string mingQRCode = "";
         string sql = "";
+        private static readonly string conn = SqlHelper.GetConnectionString("ALiCloud");
 
         /// <summary>
         /// 查询
@@ -32,16 +33,16 @@ namespace Huali.DS9208
                 string tableName = "t_QRCode" + mingQRCode.Substring(0, 4);
                 ///二维码是否存在
                 sql = string.Format("SELECT FEntryID AS interID FROM [dbo].[{0}] WHERE [FQRCode] = '{1}' ", tableName, mingQRCode);
-                object obj = SqlHelper.ExecuteScalar(sql);
+                object obj = SqlHelper.ExecuteScalar(conn, sql);
                 if (obj != null)
                 {
                     sql = string.Format("SELECT FEntryID as interID FROM [dbo].[{0}] WHERE [FQRCode] = '{1}' ORDER BY FCodeID DESC", tableName, mingQRCode);
-                    object obj1 = SqlHelper.ExecuteScalar(sql);
+                    object obj1 = SqlHelper.ExecuteScalar(conn, sql);
                     string interID = obj1 != null ? obj1.ToString() : "";
                     string billNo = interID.Substring(0, 10);
                     int entryID = int.Parse(interID.Substring(10));
                     sql = string.Format("SELECT * FROM [icstock] WHERE [单据编号] = '{0}' AND [FEntryID] = {1}", billNo, entryID.ToString());
-                    dt = SqlHelper.ExecuteDataTable(sql);
+                    dt = SqlHelper.ExecuteDataTable(conn, sql);
                     dataGridViewX1.DataSource = dt;
                 }
                 else

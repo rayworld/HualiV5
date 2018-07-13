@@ -17,7 +17,9 @@ namespace Huali.DS9208
 
         string sql = "";
         string Procedure_Name = "CreateOrUpdateQrcodeCounter";
-        string Connection_Name = "SQLConnectionString";
+        string Connection_Name = "ALiCloud";
+        private static readonly string conn = SqlHelper.GetConnectionString("ALiCloud");
+
 
         /// <summary>
         /// 查询QRCode的计数
@@ -39,7 +41,7 @@ namespace Huali.DS9208
 
                 //用“小于”是指最接近的前一天的下班计数
                 sql = string.Format("SELECT TOP 1 [fCounter] FROM [dbo].[t_Counter] WHERE [fDate] < '{0}' ORDER BY [fDate] DESC ", startDate);
-                object objStartCounter = SqlHelper.GetSingle(sql);
+                object objStartCounter = SqlHelper.ExecuteScalar(conn,sql);
                 startCounter = objStartCounter != null ? int.Parse(objStartCounter.ToString()) : 0;
                 if (startCounter == 0)
                 {
@@ -47,7 +49,7 @@ namespace Huali.DS9208
                 }
 
                 sql = string.Format("SELECT TOP 1 [fCounter] FROM [dbo].[t_Counter] WHERE [fDate] <= '{0}' ORDER BY [fDate] DESC ", endDate);
-                object objEndCounter = SqlHelper.GetSingle(sql);
+                object objEndCounter = SqlHelper.ExecuteScalar(conn,sql);
                 endCounter = objEndCounter != null ? int.Parse(objEndCounter.ToString()) : 0;
                 if (endCounter == 0)
                 {
@@ -74,7 +76,7 @@ namespace Huali.DS9208
             try
             {
                 //注意使用库的版本，连接字符串是否加密
-                string conn = EncryptHelper.Decrypt(SqlHelper.GetConnectionString(Connection_Name));
+                //string conn = EncryptHelper.Decrypt(SqlHelper.GetConnectionString(Connection_Name));
                 SqlHelper.ExecuteNonQuery(conn, CommandType.StoredProcedure, Procedure_Name, null);
             }
             catch (Exception e1)

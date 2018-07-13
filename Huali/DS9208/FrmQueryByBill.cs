@@ -17,6 +17,7 @@ namespace Huali.DS9208
 
         DataTable dt = new DataTable();
         string sql = "";
+        private static readonly string conn = SqlHelper.GetConnectionString("ALiCloud");
 
         #region 事件
         /// <summary>
@@ -34,7 +35,7 @@ namespace Huali.DS9208
                 string billType = comboBoxEx2.SelectedIndex == 0 ? "XOUT" : "QOUT";
                 string billNo = billType + textBoxX1.Text;
                 sql = string.Format("SELECT [产品名称] AS Disp , [FEntryID] AS Val FROM [dbo].[icstock] WHERE [单据编号] = '{0}'", billNo);
-                dt = SqlHelper.ExecuteDataTable(sql);
+                dt = SqlHelper.ExecuteDataTable(conn, sql);
                 DataRow dr = dt.NewRow();
                 dr[0] = "";
                 dr[1] = 0;
@@ -70,7 +71,7 @@ namespace Huali.DS9208
             string billNo = billType + textBoxX1.Text;
             string interID = billNo + comboBoxEx1.SelectedValue.ToString().PadLeft(4, '0');
             SqlParameter[] parms = { new SqlParameter("@interID", interID) };
-            dt = SqlHelper.ExecuteDataSet(SqlHelper.GetConnectionString("ALiClouds"), CommandType.StoredProcedure, "getQRCodeByinterID", parms).Tables[0];
+            dt = SqlHelper.ExecuteDataSet(conn, CommandType.StoredProcedure, "getQRCodeByinterID", parms).Tables[0];
             if (dt.Rows.Count > 0)
             {
                 dt.Columns.Add("QRCode", typeof(System.String));//二维码

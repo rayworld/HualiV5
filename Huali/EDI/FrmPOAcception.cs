@@ -13,6 +13,7 @@ namespace Huali.EDI
         {
             InitializeComponent();
         }
+        private static readonly string conn = SqlHelper.GetConnectionString("Kingdee");
 
         #region 事件
         /// <summary>
@@ -44,7 +45,7 @@ namespace Huali.EDI
             cmdCP.Append(" inner join t_Stock on t_Stock.FItemID = POInStockEntry.FStockID  ");
             cmdCP.Append(" WHERE FHeadSelfP0341 = '" + AlconNo + "'");
             cmdCP.Append(" AND t_Stock.FName in(" + stockName1 + ") ");
-            DataTable dt = SqlHelper.ExecuteDataTable(SqlHelper.GetConnectionString("Kingdee"),cmdCP.ToString());
+            DataTable dt = SqlHelper.ExecuteDataTable(conn,cmdCP.ToString());
             dataGridView1.DataSource = dt;
         }
 
@@ -60,7 +61,7 @@ namespace Huali.EDI
             StringBuilder PoAcception = new StringBuilder();
             PoAcception.Append("update POInStock set FHeadSelfP0342 = '" + arriveDate + "'" + " WHERE FHeadSelfP0341 = '" + AlconNo + "'");
 
-            int retval = SqlHelper.ExecuteNonQuery(SqlHelper.GetConnectionString("Kingdee"),PoAcception.ToString());
+            int retval = SqlHelper.ExecuteNonQuery(conn,PoAcception.ToString());
             if( retval > 0)
             {
                 //MessageBox.Show("确认成功 " + retval + " 单！");

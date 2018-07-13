@@ -17,7 +17,7 @@ namespace Huali.EDI2
 
         DataTable dt = new DataTable();
         private static TemplateType template = TemplateType.Unknow;
-        
+ 
         #region 事件
         /// <summary>
         /// 导入

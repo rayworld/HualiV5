@@ -12,6 +12,7 @@ namespace Huali.EDI.DAL
     public partial class T_ICItem
     {
         string sql = "";
+        private static readonly string conn = SqlHelper.GetConnectionString("Kingdee");
 
         /// <summary>
         /// 是否存在该记录
@@ -20,7 +21,7 @@ namespace Huali.EDI.DAL
         {
             bool retVal = false;
             sql = "SELECT Count(1) FROM t_ICItem WHERE (FHelpCode = '" + fAlconItemID + "') OR (F_111 = '" + fAlconItemID + "')";
-            object recCount = SqlHelper.ExecuteScalar(SqlHelper.GetConnectionString("Kingdee"),sql);
+            object recCount = SqlHelper.ExecuteScalar(conn,sql);
             retVal = recCount != null && int.Parse(recCount.ToString()) > 0 ? true : false;
 
             return retVal;
@@ -33,7 +34,7 @@ namespace Huali.EDI.DAL
         {
             sql = "SELECT TOP 1 * FROM t_ICItem WHERE (FHelpCode = '" + fAlconItemID + "') OR (F_111 = '" + fAlconItemID + "')";
             Huali.EDI.Model.T_ICItem model = new Huali.EDI.Model.T_ICItem();
-            DataTable dt = SqlHelper.ExecuteDataTable(SqlHelper.GetConnectionString("Kingdee"),sql);
+            DataTable dt = SqlHelper.ExecuteDataTable(conn,sql);
             if (dt.Rows.Count > 0)
             {
                 return DataRowToModel(dt.Rows[0]);
@@ -1079,6 +1080,8 @@ namespace Huali.EDI.DAL
     public partial class PoInStock
     {
         string sql = "";
+        private static readonly string conn = SqlHelper.GetConnectionString("Kingdee");
+
         /// <summary>
         /// 插入收料通知主表
         /// </summary>
@@ -1224,7 +1227,7 @@ namespace Huali.EDI.DAL
             parameters[31].Value = model.FIsCheck;
             parameters[32].Value = model.FHeadSelfP0341;
 
-            int rows = SqlHelper.ExecuteNonQuery(SqlHelper.GetConnectionString("Kingdee"),strSql.ToString(), parameters);
+            int rows = SqlHelper.ExecuteNonQuery(conn,strSql.ToString(), parameters);
             return rows > 0 ? true : false;
         }
 
@@ -1236,7 +1239,7 @@ namespace Huali.EDI.DAL
         public string GetMaxFBillNo()
         {
             sql = "SELECT MAX(FBillNo) FROM POInStock WHERE FBillNo LIKE 'DA%'";
-            object retVal = SqlHelper.ExecuteScalar(SqlHelper.GetConnectionString("Kingdee"),sql);
+            object retVal = SqlHelper.ExecuteScalar(conn,sql);
             return retVal != null ? retVal.ToString() : "";
         }
 
@@ -1248,11 +1251,11 @@ namespace Huali.EDI.DAL
         public string GetMaxFInterID()
         {
             sql = "UPDATE ICMaxNum SET FMaxNum = FMaxNum + 1 WHERE FTableName = 'poinstock'";
-            int retVal = SqlHelper.ExecuteNonQuery(SqlHelper.GetConnectionString("Kingdee"),sql);
+            int retVal = SqlHelper.ExecuteNonQuery(conn,sql);
             if (retVal > 0)
             {
                 sql = "SELECT FMaxNum FROM ICMaxNum WHERE FTableName = 'poinstock'";
-                object temp = SqlHelper.ExecuteScalar(SqlHelper.GetConnectionString("Kingdee"),sql);
+                object temp = SqlHelper.ExecuteScalar(conn,sql);
 
                 return temp != null ? temp.ToString() : "";
             }
@@ -1269,6 +1272,8 @@ namespace Huali.EDI.DAL
     #region PoInStockEntry
     public partial class PoInStockEntry
     {
+        private static readonly string conn = SqlHelper.GetConnectionString("Kingdee");
+
         /// <summary>
         /// 增加一条数据
         /// </summary>
@@ -1458,7 +1463,7 @@ namespace Huali.EDI.DAL
             parameters[86].Value = model.FSamEntryID;
             parameters[87].Value = model.FEntrySelfP0386;
 
-            int retVal = SqlHelper.ExecuteNonQuery(SqlHelper.GetConnectionString("Kingdee"),strSql.ToString(), parameters);
+            int retVal = SqlHelper.ExecuteNonQuery(conn,strSql.ToString(), parameters);
             return retVal > 0 ? true : false;
         }
 
@@ -1637,15 +1642,17 @@ namespace Huali.EDI.DAL
     public partial class T_User
     {
         string sql;
+        private static readonly string conn = SqlHelper.GetConnectionString("Kingdee");
+
         public int Login(string UserName, string password)
         {
             int retVal = 0;
             sql = " SELECT fsid FROM t_user WHERE fName ='" + UserName + "' ";
-            object obj =SqlHelper.ExecuteScalar(SqlHelper.GetConnectionString("Kingdee"),sql);
+            object obj =SqlHelper.ExecuteScalar(conn,sql);
             if (obj != null && obj.ToString().Trim() == PassService.EncryptPassword(password, 12).Trim())
             {
                 sql = " SELECT fuserid FROM t_user WHERE fName ='" + UserName + "' ";
-                object fUserId = SqlHelper.ExecuteScalar(SqlHelper.GetConnectionString("Kingdee"),sql);
+                object fUserId = SqlHelper.ExecuteScalar(conn,sql);
                 if (fUserId != null)
                 {
                     retVal = int.Parse(fUserId.ToString());
@@ -1669,6 +1676,7 @@ namespace Huali.EDI.DAL
     public partial class T_AuxItem 
     {
         string sql = "";
+        private static readonly string conn = SqlHelper.GetConnectionString("Kingdee");
 
         public int GetAuxPropIDByKey(string key)
         {
@@ -1679,7 +1687,7 @@ namespace Huali.EDI.DAL
                 retVal = 0;
             }
             sql = " SELECT FItemID  FROM t_auxItem WHERE fName = '" + key + "' ";
-            object obj = SqlHelper.ExecuteScalar(SqlHelper.GetConnectionString("Kingdee"),sql);
+            object obj = SqlHelper.ExecuteScalar(conn,sql);
 
             retVal = obj != null ? int.Parse(obj.ToString()) : 0;
             return retVal;

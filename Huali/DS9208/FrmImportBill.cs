@@ -1,5 +1,4 @@
 ﻿using DevComponents.DotNetBar;
-using DevComponents.DotNetBar.Controls;
 using Ray.Framework.Config;
 using Ray.Framework.DBUtility;
 using System;
@@ -22,6 +21,8 @@ namespace Huali.DS9208
         string FCustomId = "FCustomId";
         string FStoreId = "FStoreId";
         string FProductId = "FProductId";
+        private static readonly string conn = SqlHelper.GetConnectionString("ALiCloud");
+
 
         #region 事件
 
@@ -111,11 +112,11 @@ namespace Huali.DS9208
 
                     //去重复
                     sql = string.Format("Select Count(*) From [icstock] WHERE [单据编号] = '" + bill.单据编号 + "' AND fEntryID = " + bill.EntryID.ToString());
-                    object obj = SqlHelper.ExecuteScalar(sql);
+                    object obj = SqlHelper.ExecuteScalar(conn, sql);
                     if (obj != null && int.Parse(obj.ToString()) < 1)
                     {
                         sql = string.Format("INSERT INTO [icstock] ([日期],[单据编号],[FEntryID],[购货单位],[发货仓库] ,[产品名称] ,[规格型号] ,[实发数量] ,[批号] ,[摘要], [FActQty], [客户编号], [门店编号], [产品编号]) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}',{7},'{8}','{9}',{10},'{11}', '{12}', '{13}')", bill.日期, bill.单据编号, bill.EntryID, bill.购货单位, bill.发货仓库, bill.产品名称, bill.规格型号, bill.实发数量, bill.批号, bill.摘要, bill.FAuxQty, bill.客户编号, bill.门店编号, bill.产品编号);
-                        if (SqlHelper.ExecuteNonQuery(sql) > 0)
+                        if (SqlHelper.ExecuteNonQuery(conn, sql) > 0)
                         {
                             recCount++;
                         }

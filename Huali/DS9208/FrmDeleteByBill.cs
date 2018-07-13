@@ -14,7 +14,7 @@ namespace Huali.DS9208
         {
             InitializeComponent();
         }
-
+        private static readonly string conn = SqlHelper.GetConnectionString("ALiCloud");
         string sql = "";
         
         private void Form8_Load(object sender, EventArgs e)
@@ -30,7 +30,7 @@ namespace Huali.DS9208
                 string billType = comboBoxEx2.SelectedIndex == 0 ? "XOUT" : "QOUT";
                 string billNo = billType + textBoxX2.Text;
                 sql = string.Format("SELECT [FActQty] as 已扫数量, [日期], [单据编号],[FEntryID]  as 分录号,[购货单位],[产品名称], [发货仓库],[实发数量], [批号], [摘要]  FROM [icstock] WHERE [单据编号] = '{0}' ORDER BY FEntryID", billNo);
-                dataGridViewX1.DataSource = SqlHelper.ExecuteDataTable(sql);
+                dataGridViewX1.DataSource = SqlHelper.ExecuteDataTable(conn, sql);
                 dataGridViewX1.Columns["购货单位"].Width = 240;
                 dataGridViewX1.Columns["产品名称"].Width = 300;
             }
@@ -58,7 +58,7 @@ namespace Huali.DS9208
                         {
                             string entryID = dataGridViewX1.Rows[i].Cells["分录号"].Value.ToString();
                             sql = string.Format("DELETE [icstock] WHERE [单据编号] = '{0}' AND FEntryID = {1}", billNo, entryID.ToString());
-                            resTotal += SqlHelper.ExecuteSql(sql);
+                            resTotal += SqlHelper.ExecuteNonQuery(conn, sql);
 
                             string fID = entryID.PadLeft(4, '0');
                             res += DeleteDetailTable(billNo + fID);
@@ -71,7 +71,7 @@ namespace Huali.DS9208
                         //刷新
                         sql = string.Format("SELECT [FActQty] AS 已扫数量, [日期], [单据编号],[FEntryID]  as 分录号,[购货单位],[产品名称], [发货仓库],[实发数量], [批号], [摘要]  FROM [icstock] WHERE [单据编号] = '{0}' Order By FEntryID", billNo);
                         dataGridViewX1.DataSource = (DataTable)null;
-                        dataGridViewX1.DataSource = SqlHelper.ExecuteDataTable(sql);
+                        dataGridViewX1.DataSource = SqlHelper.ExecuteDataTable(conn, sql);
                         dataGridViewX1.Columns["购货单位"].Width = 240;
                         dataGridViewX1.Columns["产品名称"].Width = 300;
                     }
@@ -112,7 +112,7 @@ namespace Huali.DS9208
                 {
                     string fID = i < 10 ? "0" + i.ToString() : i.ToString();
                     sql = string.Format("DELETE {0}{1}{2} WHERE FEntryID = '{3}'",baseTableName, prodT[j], fID ,EntryID);
-                    retVal += SqlHelper.ExecuteSql(sql);
+                    retVal += SqlHelper.ExecuteNonQuery(conn, sql);
                 }
             }
             return retVal;

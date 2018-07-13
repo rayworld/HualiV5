@@ -15,6 +15,9 @@ namespace Huali.EDI
             InitializeComponent();
         }
 
+        private static readonly string conn = SqlHelper.GetConnectionString("Kingdee");
+
+
         #region public Ver
         DataTable dt = new DataTable();
         // 使用助记码
@@ -171,7 +174,7 @@ namespace Huali.EDI
         {
             if (!string.IsNullOrEmpty(cmdSql))
             {
-                dt = SqlHelper.ExecuteDataTable(SqlHelper.GetConnectionString("Kingdee"),cmdSql.ToString());
+                dt = SqlHelper.ExecuteDataTable(conn,cmdSql.ToString());
                 dataGridView1.DataSource = dt;
                 this.dataGridView1.Refresh();
             }

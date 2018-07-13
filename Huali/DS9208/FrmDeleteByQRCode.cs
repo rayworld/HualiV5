@@ -17,6 +17,7 @@ namespace Huali.DS9208
         }
         DataTable dt = new DataTable();
         string sql = "";
+        private static readonly string conn = SqlHelper.GetConnectionString("ALiCloud");
 
         /// <summary>
         /// 
@@ -42,7 +43,7 @@ namespace Huali.DS9208
                 string billType = comboBoxEx2.SelectedIndex == 0 ? "XOUT" : "QOUT";
                 string billNo = billType + textBoxX1.Text;
                 sql = string.Format("SELECT [产品名称] AS Disp , [FEntryID] AS Val FROM [dbo].[icstock] WHERE [单据编号] = '{0}'", billNo);
-                dt = SqlHelper.ExecuteDataTable(sql);
+                dt = SqlHelper.ExecuteDataTable(conn, sql);
                 DataRow dr = dt.NewRow();
                 dr[0] = "";
                 dr[1] = 0;
@@ -83,9 +84,9 @@ namespace Huali.DS9208
                 int retValDetail = 0;
                 int retValTotal = 0;
                 sql = string.Format("DELETE FROM " + tableName + "  WHERE [FQRCode] = '" + mingQRCode + "' AND [FEntryID] = '" + interID + "'");
-                retValDetail = SqlHelper.ExecuteNonQuery(sql);
+                retValDetail = SqlHelper.ExecuteNonQuery(conn, sql);
                 sql = string.Format("UPDATE [icstock] SET [FActQty] = [FActQty] - 1 WHERE  [单据编号] = '{0}' AND [FActQty] > 0 AND [FEntryID] = {1}", billNo, EntryID.ToString());
-                retValTotal = SqlHelper.ExecuteNonQuery(sql);
+                retValTotal = SqlHelper.ExecuteNonQuery(conn, sql);
                 if (retValTotal > 0 && retValDetail > 0)
                 {
                     Utils.H2("二维码删除成功！");
