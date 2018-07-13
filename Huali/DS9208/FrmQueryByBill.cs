@@ -6,7 +6,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 
-namespace Huali
+namespace Huali.DS9208
 {
     public partial class FrmQueryByBill : Office2007Form
     {

@@ -5,7 +5,7 @@ using Ray.Framework.Encrypt;
 using System;
 using System.Data;
 
-namespace Huali
+namespace Huali.DS9208
 {
     public partial class FrmBuildQRCode : Office2007Form
     {

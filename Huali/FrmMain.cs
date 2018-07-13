@@ -5,6 +5,7 @@ using Ray.Framework.WindowManage;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using Huali.DS9208;
 
 
 namespace Huali

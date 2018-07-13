@@ -1,12 +1,11 @@
 ﻿using DevComponents.DotNetBar;
-using DevComponents.DotNetBar.Controls;
 using Ray.Framework.DBUtility;
 using Ray.Framework.Encrypt;
 using System;
 using System.Data;
 using System.Windows.Forms;
 
-namespace Huali
+namespace Huali.DS9208
 {
     public partial class FrmQRCodeScan : Office2007Form
     {

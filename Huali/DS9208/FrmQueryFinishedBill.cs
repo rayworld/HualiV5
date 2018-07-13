@@ -1,15 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
 using DevComponents.DotNetBar;
 using Ray.Framework.DBUtility;
-using DevComponents.DotNetBar.Controls;
+using System;
+using System.Data;
 
-namespace Huali
+namespace Huali.DS9208
 {
     /// <summary>
     /// 显示已经扫过码的单号

@@ -1,4 +1,4 @@
-﻿namespace Huali
+﻿namespace Huali.DS9208
 {
     partial class FrmStatistics
     {

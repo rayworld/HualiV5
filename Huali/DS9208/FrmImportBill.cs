@@ -7,7 +7,7 @@ using System.Data;
 using System.Data.OleDb;
 using System.Windows.Forms;
 
-namespace Huali
+namespace Huali.DS9208
 {
     public partial class FrmImportBill : Office2007Form
     {

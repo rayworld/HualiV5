@@ -1,18 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
-
-using DevComponents.DotNetBar;
+﻿using DevComponents.DotNetBar;
 using DevComponents.DotNetBar.Controls;
 using Ray.Framework.DBUtility;
-using System.Data.SqlClient;
 using Ray.Framework.Encrypt;
+using System;
+using System.Data;
+using System.Windows.Forms;
 
-namespace Huali
+namespace Huali.DS9208
 {
     public partial class FrmStatistics : Office2007Form
     {

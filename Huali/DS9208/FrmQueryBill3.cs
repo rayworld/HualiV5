@@ -1,16 +1,11 @@
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
 using DevComponents.DotNetBar;
 using DevComponents.DotNetBar.Controls;
-
 using Ray.Framework.DBUtility;
+using System;
+using System.Data;
+using System.Windows.Forms;
 
-namespace Huali
+namespace Huali.DS9208
 {
     public partial class FrmQueryBill3 : Office2007Form
     {
@@ -33,13 +28,13 @@ namespace Huali
                 dataGridViewX1.Columns["购货单位"].Width = 300;
                 dataGridViewX1.Columns["日期"].Width = 200;
                 
-                foreach (DataGridViewRow datagridviewrow in dataGridViewX1.Rows)
+                foreach (DataGridViewRow Datagridviewrow in dataGridViewX1.Rows)
                 {
-                    datagridviewrow.Selected = false;
+                    Datagridviewrow.Selected = false;
 
-                    if (int.Parse(datagridviewrow.Cells["应扫数量"].Value.ToString()) != int.Parse(datagridviewrow.Cells["实扫数量"].Value.ToString()))
+                    if (int.Parse(Datagridviewrow.Cells["应扫数量"].Value.ToString()) != int.Parse(Datagridviewrow.Cells["实扫数量"].Value.ToString()))
                     {
-                        datagridviewrow.Selected = true;
+                        Datagridviewrow.Selected = true;
                     }
                 }
             }

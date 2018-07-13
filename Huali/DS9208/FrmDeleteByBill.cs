@@ -5,7 +5,7 @@ using System;
 using System.Data;
 using System.Windows.Forms;
 
-namespace Huali
+namespace Huali.DS9208
 {
     public partial class FrmDeleteByBill : Office2007Form
     {

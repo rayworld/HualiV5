@@ -6,7 +6,7 @@ using System.Data;
 using System.Windows.Forms;
 
 
-namespace Huali
+namespace Huali.DS9208
 {
     public partial class FrmDeleteByQRCode : Office2007Form
     {
