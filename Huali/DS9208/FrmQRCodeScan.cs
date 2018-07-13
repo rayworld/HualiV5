@@ -17,7 +17,7 @@ namespace Huali.DS9208
 
         string mingQRCodes = "";
         string sql = "";
-        private static readonly string conn = SqlHelper.GetConnectionString("ALiCloud");
+        private static readonly string conn = SqlHelper.GetConnectionString("ALiClouds");
 
         DataTable dt = (DataTable)null;
        

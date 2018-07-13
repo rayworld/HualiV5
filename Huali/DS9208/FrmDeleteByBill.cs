@@ -14,7 +14,7 @@ namespace Huali.DS9208
         {
             InitializeComponent();
         }
-        private static readonly string conn = SqlHelper.GetConnectionString("ALiCloud");
+        private static readonly string conn = SqlHelper.GetConnectionString("ALiClouds");
         string sql = "";
         
         private void Form8_Load(object sender, EventArgs e)

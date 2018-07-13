@@ -17,8 +17,8 @@ namespace Huali.DS9208
 
         string sql = "";
         string Procedure_Name = "CreateOrUpdateQrcodeCounter";
-        string Connection_Name = "ALiCloud";
-        private static readonly string conn = SqlHelper.GetConnectionString("ALiCloud");
+        string Connection_Name = "ALiClouds";
+        private static readonly string conn = SqlHelper.GetConnectionString("ALiClouds");
 
 
         /// <summary>

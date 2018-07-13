@@ -15,7 +15,7 @@ namespace Huali.DS9208
         }
 
         DataTable dt = new DataTable();
-        //private static readonly string conn = SqlHelper.GetConnectionString("ALiCloud");
+        //private static readonly string conn = SqlHelper.GetConnectionString("ALiClouds");
 
 
         #region 事件

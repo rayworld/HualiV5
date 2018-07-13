@@ -29,7 +29,7 @@ namespace Huali.CheckMailStat
         POP3_Client pop3 = new POP3_Client();
         POP3_ClientMessage message = (POP3_ClientMessage)null;
         ListViewItem lviMail = new ListViewItem();
-        private static readonly string conn = SqlHelper.GetConnectionString("ALiCloud");
+        private static readonly string conn = SqlHelper.GetConnectionString("ALiClouds");
 
         private void Form3_Load(object sender, EventArgs e)
         {

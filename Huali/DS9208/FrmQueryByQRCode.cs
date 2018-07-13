@@ -16,7 +16,7 @@ namespace Huali.DS9208
         DataTable dt = new DataTable();
         string mingQRCode = "";
         string sql = "";
-        private static readonly string conn = SqlHelper.GetConnectionString("ALiCloud");
+        private static readonly string conn = SqlHelper.GetConnectionString("ALiClouds");
 
         /// <summary>
         /// 查询
