@@ -1,4 +1,4 @@
-namespace Huali
+namespace Huali.EDI2
 {
     partial class FrmSEOutStock
     {

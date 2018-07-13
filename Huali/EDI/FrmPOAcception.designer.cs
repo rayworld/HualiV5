@@ -1,4 +1,4 @@
-﻿namespace Huali
+﻿namespace Huali.EDI
 {
     partial class FrmPOAcception
     {

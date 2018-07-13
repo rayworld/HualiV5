@@ -43,7 +43,7 @@ namespace Huali.DS9208
                 startCounter = objStartCounter != null ? int.Parse(objStartCounter.ToString()) : 0;
                 if (startCounter == 0)
                 {
-                    DesktopAlert.Show("<h2>请输入有效的开始时间！</h2>");
+                    Utils.H2("请输入有效的开始时间！");
                 }
 
                 sql = string.Format("SELECT TOP 1 [fCounter] FROM [dbo].[t_Counter] WHERE [fDate] <= '{0}' ORDER BY [fDate] DESC ", endDate);
@@ -51,7 +51,7 @@ namespace Huali.DS9208
                 endCounter = objEndCounter != null ? int.Parse(objEndCounter.ToString()) : 0;
                 if (endCounter == 0)
                 {
-                    DesktopAlert.Show("<h2>请输入有效的结束时间！</h2>");
+                    Utils.H2("请输入有效的结束时间！");
                 }
 
                 int QRCodeCount = endCounter - startCounter;
@@ -60,7 +60,7 @@ namespace Huali.DS9208
             }
             else
             {
-                DesktopAlert.Show("<h2>请输入有效的开始时间和结束时间！</h2>");
+                Utils.H2("请输入有效的开始时间和结束时间！");
             }
         }
 
@@ -83,7 +83,7 @@ namespace Huali.DS9208
             }
             finally
             {
-                DesktopAlert.Show("<h2>统计计数完成！</h2>");
+                Utils.H2("统计计数完成！");
             }
         }
     }

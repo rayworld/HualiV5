@@ -6,7 +6,7 @@ using System;
 using System.Data;
 using System.Windows.Forms;
 
-namespace Huali
+namespace Huali.EDI2
 {
     public partial class FrmSEOutStock : Office2007Form
     {
@@ -45,7 +45,7 @@ namespace Huali
             }
             else 
             {
-                DesktopAlert.Show("不能识别的Excel模板文件！");
+                Utils.H2("不能识别的Excel模板文件！");
             }
         }
 
@@ -77,7 +77,7 @@ namespace Huali
                 string sheetName = template == TemplateType.日立 ? "门店信息" : "Sheet1";
                 dt = c2d.Excel2DataTable(fileName, sheetName, null, null);
                 this.dataGridViewX1.DataSource = dt;
-                DesktopAlert.Show("<h2>" + "成功打开Excel文件！ " + "</h2>");
+                Utils.H2("成功打开Excel文件！");
             }
         }
 
@@ -179,7 +179,7 @@ namespace Huali
             }
             else
             {
-                DesktopAlert.Show("没有可用的数据！");
+                Utils.H2("没有可用的数据！");
             }
 
             return retVal;
@@ -204,7 +204,7 @@ namespace Huali
                 int productId = dICItem.GetItemIDByFNameFnumber(productNumber, productDegree);
                 if (productId == 0)
                 {
-                    DesktopAlert.Show("第" + rowNum + "行产品编号不能识别！");
+                    Utils.H2("第" + rowNum + "行产品编号不能识别！");
                     retVal = false;
                 }
                 else
@@ -217,13 +217,13 @@ namespace Huali
                 int storeId = dICItem.GetCustIDByFnumber(storeNumber);
                 if (storeId == 0)
                 {
-                    DesktopAlert.Show("第" + rowNum + "行客户编号不能识别！");
+                    Utils.H2("第" + rowNum + "行客户编号不能识别！");
                     //总店编号检查
                     storeNumber = storeNumber.Substring(0, storeNumber.Length - 3) + "001";
                     storeId = dICItem.GetCustIDByFnumber(storeNumber);
                     if (storeId == 0)
                     {
-                        DesktopAlert.Show("第" + rowNum + "行总店编号不能识别！");
+                        Utils.H2("第" + rowNum + "行总店编号不能识别！");
                         return false;
                     }
                     else
@@ -241,7 +241,7 @@ namespace Huali
                 int customId = dICItem.GetCustIDByFnumber(customNumber);
                 if (customId == 0)
                 {
-                    DesktopAlert.Show("第" + rowNum + "行客户编号不能识别！");
+                    Utils.H2("第" + rowNum + "行客户编号不能识别！");
                     return false;
                 }
                 else
@@ -273,7 +273,7 @@ namespace Huali
             {
                 if (dSale.InsertBill(mSale) == true)
                 {
-                    //DesktopAlert.Show("写主表成功！");
+                    //Utils.H2("写主表成功！");
 
                     //写子表
                     int succ = 0;
@@ -296,18 +296,18 @@ namespace Huali
                     }
                     if (succ == dt.Rows.Count)
                     {
-                        DesktopAlert.Show("<h2>单据号 " + billNo + " ：" + succ + " 条记录导入成功！</h2>");
+                        Utils.H2("单据号 " + billNo + " ：" + succ + " 条记录导入成功！");
                         return true;
                     }
                     else
                     {
-                        DesktopAlert.Show(billNo + "写子表失败！");
+                        Utils.H2(billNo + "写子表失败！");
                         return false;
                     }
                 }
                 else
                 {
-                    DesktopAlert.Show("写主数据表失败");
+                    Utils.H2("写主数据表失败");
                     return false;
                 }
             }
@@ -355,7 +355,7 @@ namespace Huali
             }
             else
             {
-                DesktopAlert.Show("没有可用的数据！");
+                Utils.H2("没有可用的数据！");
                 return false;
             }
             return retVal;
@@ -386,7 +386,7 @@ namespace Huali
                 {
                     if (dSale.InsertBill(mSale) == true)
                     {
-                        //DesktopAlert.Show("写主表成功！");
+                        //Utils.H2("写主表成功！");
 
                         //写子表
                         int succ = 0;
@@ -410,18 +410,18 @@ namespace Huali
                         }
                         if (succ == tmpdt.Rows.Count)
                         {
-                            DesktopAlert.Show("<h2>单据号 " + billNo + " ：" + succ + " 条记录导入成功！</h2>");
+                            Utils.H2("单据号 " + billNo + " ：" + succ + " 条记录导入成功！");
                             return true;
                         }
                         else
                         {
-                            DesktopAlert.Show(billNo + "写子表失败！");
+                            Utils.H2(billNo + "写子表失败！");
                             return false;
                         }
                     }
                     else
                     {
-                        DesktopAlert.Show("写主数据表失败");
+                        Utils.H2("写主数据表失败");
                         return false;
                     }
                 }
@@ -433,7 +433,7 @@ namespace Huali
             }
             else
             {
-                DesktopAlert.Show("没有可用的数据！");
+                Utils.H2("没有可用的数据！");
                 return false;
             }
         }
@@ -462,7 +462,7 @@ namespace Huali
                 {
                     if (dSale.InsertBill(mSale) == true)
                     {
-                        //DesktopAlert.Show("写主表成功！");
+                        //Utils.H2("写主表成功！");
 
                         //写子表
                         int succ = 0;
@@ -486,18 +486,18 @@ namespace Huali
                         }
                         if (succ == tmpdt.Rows.Count)
                         {
-                            DesktopAlert.Show("<h2>单据号 " + billNo + " ：" + succ + " 条记录导入成功！</h2>");
+                            Utils.H2("单据号 " + billNo + " ：" + succ + " 条记录导入成功！");
                             return true;
                         }
                         else
                         {
-                            DesktopAlert.Show(billNo + "写子表失败！");
+                            Utils.H2(billNo + "写子表失败！");
                             return false;
                         }
                     }
                     else
                     {
-                        DesktopAlert.Show("写主数据表失败");
+                        Utils.H2("写主数据表失败");
                         return false;
                     }
                 }
@@ -509,7 +509,7 @@ namespace Huali
             }
             else
             {
-                DesktopAlert.Show("没有可用的数据！");
+                Utils.H2("没有可用的数据！");
                 return false;
             }
         }
@@ -522,7 +522,7 @@ namespace Huali
         {
             DataTable tmpdt = FilterData(dt, "数量 > 0");
 
-            //DesktopAlert.Show(tmpdt.Rows.Count.ToString());
+            //Utils.H2(tmpdt.Rows.Count.ToString());
 
             if (tmpdt.Rows.Count > 0)
             {
@@ -541,7 +541,7 @@ namespace Huali
                 {
                     if (dSale.InsertBill(mSale) == true)
                     {
-                        //DesktopAlert.Show("写主表成功！");
+                        //Utils.H2("写主表成功！");
 
                         //写子表
                         int succ = 0;
@@ -566,18 +566,18 @@ namespace Huali
                         }
                         if (succ == tmpdt.Rows.Count)
                         {
-                            DesktopAlert.Show("<h2>单据号 " + billNo + " ：" + succ + " 条记录导入成功！</h2>");
+                            Utils.H2("单据号 " + billNo + " ：" + succ + " 条记录导入成功！</h2>");
                             return true;
                         }
                         else
                         {
-                            DesktopAlert.Show(billNo + "写子表失败！");
+                            Utils.H2(billNo + "写子表失败！");
                             return false;
                         }
                     }
                     else
                     {
-                        DesktopAlert.Show("写主数据表失败");
+                        Utils.H2("写主数据表失败");
                         return false;
                     }
                 }
@@ -589,7 +589,7 @@ namespace Huali
             }
             else
             {
-                DesktopAlert.Show("没有可用的数据！");
+                Utils.H2("没有可用的数据！");
                 return false;
             }
         }
@@ -612,7 +612,7 @@ namespace Huali
                 int productId = dICItem.GetItemIDBySKU(sku);
                 if (productId == 0)
                 {
-                    DesktopAlert.Show("第" + rowNum + "行产品编号不能识别！");
+                    Utils.H2("第" + rowNum + "行产品编号不能识别！");
                     retVal = false;
                 }
                 else
@@ -625,13 +625,13 @@ namespace Huali
                 int storeId = dICItem.GetCustIDByFnumber(storeNumber);
                 if (storeId == 0)
                 {
-                    DesktopAlert.Show("第" + rowNum + "行门店代码不能识别！");
+                    Utils.H2("第" + rowNum + "行门店代码不能识别！");
                     //总店编号检查
                     storeNumber = storeNumber.Substring(0, storeNumber.Length - 3) + "001";
                     storeId = dICItem.GetCustIDByFnumber(storeNumber);
                     if (storeId == 0)
                     {
-                        DesktopAlert.Show("第" + rowNum + "行总店编号不能识别！");
+                        Utils.H2("第" + rowNum + "行总店编号不能识别！");
                         return false;
                     }
                     else
@@ -649,7 +649,7 @@ namespace Huali
                 int customId = dICItem.GetCustIDByFnumber(customNumber);
                 if (customId == 0)
                 {
-                    DesktopAlert.Show("第" + rowNum + "行客户编号不能识别！");
+                    Utils.H2("第" + rowNum + "行客户编号不能识别！");
                     return false;
                 }
                 else
@@ -662,7 +662,7 @@ namespace Huali
                 int stockId = dICItem.GetStockIDByFName(stockName);
                 if (stockId == 0)
                 {
-                    DesktopAlert.Show("第" + rowNum + "行仓库编号不能识别！");
+                    Utils.H2("第" + rowNum + "行仓库编号不能识别！");
                     return false;
                 }
                 else

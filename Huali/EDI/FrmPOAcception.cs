@@ -5,7 +5,7 @@ using System;
 using System.Data;
 using System.Text;
 
-namespace Huali
+namespace Huali.EDI
 {
     public partial class FrmPOAcception : Office2007Form 
     {
@@ -64,13 +64,13 @@ namespace Huali
             if( retval > 0)
             {
                 //MessageBox.Show("确认成功 " + retval + " 单！");
-                DesktopAlert.Show("<h2>" + "确认成功 " + retval + " 单！" + "</h2>");
+                Utils.H2("确认成功 " + retval + " 单！");
 
             }
             else
             {
                 //MessageBox.Show("确认失败！");
-                DesktopAlert.Show("<h2>" + "确认失败！" + "</h2>");
+                Utils.H2("确认失败！");
             }
         }
         #endregion

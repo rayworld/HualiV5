@@ -6,7 +6,7 @@ using System.IO;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Huali
+namespace Huali.EDI
 {
     public partial class FrmExport : Office2007Form
     {

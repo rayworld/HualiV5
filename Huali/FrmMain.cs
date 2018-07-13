@@ -1,11 +1,12 @@
 ﻿using DevComponents.DotNetBar;
-using DevComponents.DotNetBar.Controls;
+using Huali.DS9208;
+using Huali.EDI;
+using Huali.EDI2;
 using Ray.Framework.Config;
 using Ray.Framework.WindowManage;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
-using Huali.DS9208;
 
 
 namespace Huali
@@ -246,14 +247,14 @@ namespace Huali
                     }
                     else
                     {
-                        DesktopAlert.Show("<h2>" + module.ToLower() + "不能识别的应用模块！</h2>");
+                        Utils.H2(module.ToLower() + "不能识别的应用模块！");
                     }
                 }
 
             }
             else
             {
-                DesktopAlert.Show("<h2>应用程序加载模块出错！</h2>");
+                Utils.H2("应用程序加载模块出错！");
             }
         }
 

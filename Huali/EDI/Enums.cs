@@ -1,5 +1,5 @@
 ﻿
-namespace Huali
+namespace Huali.EDI
 {
     /// <summary>
     /// 仓库名称枚举
