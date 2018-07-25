@@ -229,9 +229,14 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="SystemUpdate.config" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <ProjectReference Include="..\Ray.Framework.AutoUpdate\Ray.Framework.AutoUpdate.csproj">
+      <Project>{9d576b9c-3db6-4c49-91ce-029300d3331c}</Project>
+      <Name>Ray.Framework.AutoUpdate</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Ray.Framework.Config\Ray.Framework.Config.csproj">
       <Project>{ba7cb68d-f2a6-4681-9d35-bd55d405f768}</Project>
       <Name>Ray.Framework.Config</Name>

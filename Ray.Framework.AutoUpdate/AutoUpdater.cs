@@ -7,6 +7,7 @@ using System.Threading;
 using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Serialization;
+using DevComponents.DotNetBar.Controls;
 
 namespace Ray.Framework.AutoUpdate
 {
@@ -108,7 +109,7 @@ namespace Ray.Framework.AutoUpdate
             }
             else
             {
-                MessageBox.Show("当前已是最新版本。", "自动更新", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DesktopAlert.Show("<h2>当前已是最新版本。</h2>");
             }
         }
 
@@ -122,7 +123,7 @@ namespace Ray.Framework.AutoUpdate
 
                 if (bNeedRestart)
                 {
-                    MessageBox.Show("系统应用已更新，请点击确定重新启动程序。", "自动更新", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    DesktopAlert.Show("<h2>系统应用已更新，请点击确定重新启动程序。</h2>");
 
                     //DOUAC();
                     Process.Start(Application.ExecutablePath);

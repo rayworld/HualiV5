@@ -1,10 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using DevComponents.DotNetBar;
 
 namespace Ray.Framework.AutoUpdate
 {
-    public partial class DownloadConfirm : Form
+    public partial class DownloadConfirm : Office2007Form
     {
         List<DownloadFileInfo> downloadFileList = null;
 

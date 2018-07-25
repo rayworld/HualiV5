@@ -5,10 +5,12 @@ using System.IO;
 using System.Net;
 using System.Threading;
 using System.Windows.Forms;
+using DevComponents.DotNetBar;
+
 
 namespace Ray.Framework.AutoUpdate
 {
-    public partial class DownloadProgress : Form
+    public partial class DownloadProgress : Office2007Form
     {
         private bool isFinished = false;
         private List<DownloadFileInfo> downloadFileList = null;
