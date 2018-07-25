@@ -69,5 +69,14 @@
       <DependentUpon>DownloadProgress.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Ray.Framework.Config\Ray.Framework.Config.csproj">
+      <Project>{ba7cb68d-f2a6-4681-9d35-bd55d405f768}</Project>
+      <Name>Ray.Framework.Config</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

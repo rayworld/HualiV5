@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
+using Ray.Framework.Config;
 
 namespace Ray.Framework.AutoUpdate
 {
@@ -18,6 +19,8 @@ namespace Ray.Framework.AutoUpdate
 
         private void OnLoad(object sender, EventArgs e)
         {
+            this.styleManager1.ManagerStyle = (eStyle)Enum.Parse(typeof(eStyle), ConfigHelper.ReadValueByKey(ConfigHelper.ConfigurationFile.AppConfig, "FormStyle"));
+
             foreach (DownloadFileInfo file in this.downloadFileList)
             {
                 ListViewItem item = new ListViewItem(new string[] { file.FileName, file.LastVer, file.Size.ToString() });
@@ -26,6 +29,6 @@ namespace Ray.Framework.AutoUpdate
 
             this.Activate();
             this.Focus();
-        }
+        }        
     }
 }

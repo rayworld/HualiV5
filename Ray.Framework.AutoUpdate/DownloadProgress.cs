@@ -6,6 +6,7 @@ using System.Net;
 using System.Threading;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
+using Ray.Framework.Config;
 
 
 namespace Ray.Framework.AutoUpdate
@@ -44,6 +45,7 @@ namespace Ray.Framework.AutoUpdate
 
         private void OnFormLoad(object sender, EventArgs e)
         {
+            this.styleManager1.ManagerStyle = (eStyle)Enum.Parse(typeof(eStyle), ConfigHelper.ReadValueByKey(ConfigHelper.ConfigurationFile.AppConfig, "FormStyle"));
             evtDownload = new ManualResetEvent(true);
             evtDownload.Reset();
             Thread t = new Thread(new ThreadStart(ProcDownload));
