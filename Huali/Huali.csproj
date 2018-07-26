@@ -60,6 +60,12 @@
     <Compile Include="CheckMailStat\FrmCheckQRCodeState.Designer.cs">
       <DependentUpon>FrmCheckQRCodeState.cs</DependentUpon>
     </Compile>
+    <Compile Include="DS9208\FrmQueryCheckState.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DS9208\FrmQueryCheckState.Designer.cs">
+      <DependentUpon>FrmQueryCheckState.cs</DependentUpon>
+    </Compile>
     <Compile Include="DS9208\FrmQueryByBill.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -169,6 +175,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DS9208\FrmDeleteByQRCode.resx">
       <DependentUpon>FrmDeleteByQRCode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DS9208\FrmQueryCheckState.resx">
+      <DependentUpon>FrmQueryCheckState.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DS9208\FrmQueryByBill.resx">
       <DependentUpon>FrmQueryByBill.cs</DependentUpon>

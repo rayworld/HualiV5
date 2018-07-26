@@ -216,6 +216,12 @@ namespace Huali
         {
             SetMdiForm("扫描二维码", typeof(FrmQRCodeScan));
         }
+
+        private void ButtonItem31_Click(object sender, EventArgs e)
+        {
+            SetMdiForm("查询核销状态", typeof(FrmQueryCheckState));
+        }
+
         #endregion
 
         #endregion
@@ -319,6 +325,7 @@ namespace Huali
             }
 
         }
+
 
         #endregion
 
