@@ -89,13 +89,13 @@ namespace Huali.DS9208
             int retVal = 0;
             string[] prodT = null;
             string prodType0 = "17";
-            string prodType1 = "16";
-            string confProdType = ConfigHelper.ReadValueByKey(ConfigHelper.ConfigurationFile.AppConfig, "ProdType");
-            if (confProdType == EnumProductType.护理液.ToString())
+            string prodType1 = "16;18";
+            string confProdType = ConfigHelper.ReadValueByKey(ConfigHelper.ConfigurationFile.AppConfig, "Modules");
+            if (confProdType == EnumProductType.ds9208_护理液.ToString())
             {
                 prodT = prodType0.Split(';');
             }
-            else if (confProdType == EnumProductType.镜片.ToString())
+            else if (confProdType == EnumProductType.ds9208_镜片.ToString())
             {
                 prodT = prodType1.Split(';');
             }
@@ -118,5 +118,5 @@ namespace Huali.DS9208
             return retVal;
         }
     }
-    public enum EnumProductType { 护理液, 镜片, }
+    public enum EnumProductType { ds9208_护理液, ds9208_镜片, }
 }
