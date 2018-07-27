@@ -1,4 +1,5 @@
 ﻿using DevComponents.DotNetBar;
+using Ray.Framework.CustomDotNetBar;
 using Ray.Framework.DBUtility;
 using Ray.Framework.Encrypt;
 using System.Text.RegularExpressions;
@@ -30,16 +31,16 @@ namespace Huali.DS9208
                     object obj = SqlHelper.ExecuteScalar(conn, sql);
                     if (obj != null && obj.ToString().ToLower() == "c")
                     {
-                        Utils.H2("唯一码已核销！");
+                        CustomDesktopAlert.H2("唯一码已核销！");
                     }
                     else
                     {
-                        Utils.H2("唯一码未核销或者不存在！");
+                        CustomDesktopAlert.H2("唯一码未核销或者不存在！");
                     }
                 }
                 else
                 {
-                    Utils.H2("不能识别的唯一码！");
+                    CustomDesktopAlert.H2("不能识别的唯一码！");
 
                 }
 

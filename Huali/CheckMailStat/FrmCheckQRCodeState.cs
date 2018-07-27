@@ -1,5 +1,5 @@
 using DevComponents.DotNetBar;
-using DevComponents.DotNetBar.Controls;
+using Ray.Framework.CustomDotNetBar;
 using LumiSoft.Net.Mail;
 using LumiSoft.Net.MIME;
 using LumiSoft.Net.POP3.Client;
@@ -41,7 +41,7 @@ namespace Huali.CheckMailStat
 
             if (listView1.Items.Count > 0)
             {
-                Utils.H2(listView1.Items.Count.ToString());
+                CustomDesktopAlert.H2(listView1.Items.Count.ToString());
                 foreach (ListViewItem mail in listView1.Items)
                 {
                     //得到当前的邮件
@@ -250,7 +250,7 @@ namespace Huali.CheckMailStat
                             }
                         }
 
-                        Utils.H2("共成功导入 " + recCount.ToString() + " 条记录！");
+                        CustomDesktopAlert.H2("共成功导入 " + recCount.ToString() + " 条记录！");
                         return recCount;
 
                     }
@@ -350,7 +350,7 @@ namespace Huali.CheckMailStat
                         {
                             if (lviMail.SubItems[4].Text == mail.UID)
                             {
-                                Utils.H2(mail.UID);
+                                CustomDesktopAlert.H2(mail.UID);
                                 mail.MarkForDeletion();
                                 lviMail.Remove();
                             }

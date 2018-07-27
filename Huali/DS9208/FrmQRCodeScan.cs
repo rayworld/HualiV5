@@ -1,4 +1,5 @@
 ﻿using DevComponents.DotNetBar;
+using Ray.Framework.CustomDotNetBar;
 using Ray.Framework.DBUtility;
 using Ray.Framework.Encrypt;
 using System;
@@ -74,12 +75,12 @@ namespace Huali.DS9208
                     }
                     else
                     {
-                        Utils.H2("无数据，请检查单据编号的输入!");
+                        CustomDesktopAlert.H2("无数据，请检查单据编号的输入!");
                     }
                 }
                 else
                 {
-                    Utils.H2("请检查单据编号的输入!");
+                    CustomDesktopAlert.H2("请检查单据编号的输入!");
                 }
             }
         }
@@ -147,26 +148,26 @@ namespace Huali.DS9208
                     //限定二维码信息
                     if (string.IsNullOrEmpty(mingQRCode))
                     {
-                        Utils.H2("二维码为空！");
+                        CustomDesktopAlert.H2("二维码为空！");
                         return;
                     }
 
                     if (mingQRCode.Length != 9)
                     {
-                        Utils.H2("二维码长度不正确！");
+                        CustomDesktopAlert.H2("二维码长度不正确！");
                         return;
                     }
 
                     if (IsNumber(mingQRCode) == false)
                     {
-                        Utils.H2("二维码未能正确识别！");
+                        CustomDesktopAlert.H2("二维码未能正确识别！");
                         return;
                     }
 
                     //单据编号和分录编号不为空
                     if (billNo == "" || entryID == "")
                     {
-                        Utils.H2("请先输入出库单编号，选择明细分录！");
+                        CustomDesktopAlert.H2("请先输入出库单编号，选择明细分录！");
                         return;
                     }
 
@@ -174,7 +175,7 @@ namespace Huali.DS9208
                     int index = mingQRCodes.IndexOf(mingQRCode);
                     if (index > -1)
                     {
-                        Utils.H2("此二维码录入重复！");
+                        CustomDesktopAlert.H2("此二维码录入重复！");
                         return;
                     }
                     mingQRCodes += mingQRCode + ";";
@@ -197,12 +198,12 @@ namespace Huali.DS9208
                         //此出库单已经全部录入完成
                         if (dataGridViewX1.Rows.Count == 0)
                         {
-                            Utils.H2("此出库单已经全部录入完成！");
+                            CustomDesktopAlert.H2("此出库单已经全部录入完成！");
                         }
                         else//此分录已经全部录入完成
                         {
                             dataGridViewX1.Rows[0].Selected = true;
-                            Utils.H2("此分录已经全部录入完成！");
+                            CustomDesktopAlert.H2("此分录已经全部录入完成！");
                         }
                         //清空二维码录入记录
                         mingQRCodes = "";
@@ -210,7 +211,7 @@ namespace Huali.DS9208
                 }
                 else
                 {
-                    Utils.H2("二维码数量超过范围！");
+                    CustomDesktopAlert.H2("二维码数量超过范围！");
                     return;
                 }
             }

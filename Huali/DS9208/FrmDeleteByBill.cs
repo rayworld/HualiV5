@@ -1,5 +1,6 @@
 ﻿using DevComponents.DotNetBar;
 using Ray.Framework.Config;
+using Ray.Framework.CustomDotNetBar;
 using Ray.Framework.DBUtility;
 using System;
 using System.Data;
@@ -66,7 +67,7 @@ namespace Huali.DS9208
                     }
                     if (resTotal > 0)
                     {
-                        Utils.H2(string.Format("{0} 条分录,{1} 条二维码被删除！", resTotal, res));
+                        CustomDesktopAlert.H2(string.Format("{0} 条分录,{1} 条二维码被删除！", resTotal, res));
 
                         //刷新
                         sql = string.Format("SELECT [FActQty] AS 已扫数量, [日期], [单据编号],[FEntryID]  as 分录号,[购货单位],[产品名称], [发货仓库],[实发数量], [批号], [摘要]  FROM [icstock] WHERE [单据编号] = '{0}' Order By FEntryID", billNo);
@@ -101,7 +102,7 @@ namespace Huali.DS9208
             }
             else
             {
-                Utils.H2("产品类型设置错误！");
+                CustomDesktopAlert.H2("产品类型设置错误！");
             }
 
             string baseTableName = "dbo.t_QRCode";

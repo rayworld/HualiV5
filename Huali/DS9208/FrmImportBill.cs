@@ -1,5 +1,6 @@
 ﻿using DevComponents.DotNetBar;
 using Ray.Framework.Config;
+using Ray.Framework.CustomDotNetBar;
 using Ray.Framework.DBUtility;
 using System;
 using System.Data;
@@ -122,7 +123,7 @@ namespace Huali.DS9208
                         }
                     }
                 }
-                Utils.H2(string.Format("共成功导入 {0} 条记录！", recCount.ToString()));
+                CustomDesktopAlert.H2(string.Format("共成功导入 {0} 条记录！", recCount.ToString()));
             }
 
         }

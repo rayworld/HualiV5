@@ -1,6 +1,7 @@
 ﻿using DevComponents.DotNetBar;
 using Ray.Framework.Config;
 using Ray.Framework.Converter;
+using Ray.Framework.CustomDotNetBar;
 using Ray.Framework.Encrypt;
 using System;
 using System.Data;
@@ -49,7 +50,7 @@ namespace Huali.DS9208
             }
             else
             {
-                Utils.H2("请输入有效的年份和表序号");
+                CustomDesktopAlert.H2("请输入有效的年份和表序号");
             }
 
         }

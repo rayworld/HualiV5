@@ -1,5 +1,5 @@
 ﻿using DevComponents.DotNetBar;
-using DevComponents.DotNetBar.Controls;
+using Ray.Framework.CustomDotNetBar;
 using Ray.Framework.DBUtility;
 using System;
 using System.Data;
@@ -65,13 +65,13 @@ namespace Huali.EDI
             if( retval > 0)
             {
                 //MessageBox.Show("确认成功 " + retval + " 单！");
-                Utils.H2("确认成功 " + retval + " 单！");
+                CustomDesktopAlert.H2("确认成功 " + retval + " 单！");
 
             }
             else
             {
                 //MessageBox.Show("确认失败！");
-                Utils.H2("确认失败！");
+                CustomDesktopAlert.H2("确认失败！");
             }
         }
         #endregion

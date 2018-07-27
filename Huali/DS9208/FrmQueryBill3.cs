@@ -1,4 +1,5 @@
 using DevComponents.DotNetBar;
+using Ray.Framework.CustomDotNetBar;
 using Ray.Framework.DBUtility;
 using System;
 using System.Data;
@@ -41,7 +42,7 @@ namespace Huali.DS9208
             }
             else
             {
-                Utils.H2("请输入有效的开始时间和结束时间！");
+                CustomDesktopAlert.H2("请输入有效的开始时间和结束时间！");
             }
         }
     }

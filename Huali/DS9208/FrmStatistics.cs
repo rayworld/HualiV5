@@ -1,5 +1,5 @@
 ﻿using DevComponents.DotNetBar;
-using DevComponents.DotNetBar.Controls;
+using Ray.Framework.CustomDotNetBar;
 using Ray.Framework.DBUtility;
 using Ray.Framework.Encrypt;
 using System;
@@ -45,7 +45,7 @@ namespace Huali.DS9208
                 startCounter = objStartCounter != null ? int.Parse(objStartCounter.ToString()) : 0;
                 if (startCounter == 0)
                 {
-                    Utils.H2("请输入有效的开始时间！");
+                    CustomDesktopAlert.H2("请输入有效的开始时间！");
                 }
 
                 sql = string.Format("SELECT TOP 1 [fCounter] FROM [dbo].[t_Counter] WHERE [fDate] <= '{0}' ORDER BY [fDate] DESC ", endDate);
@@ -53,16 +53,16 @@ namespace Huali.DS9208
                 endCounter = objEndCounter != null ? int.Parse(objEndCounter.ToString()) : 0;
                 if (endCounter == 0)
                 {
-                    Utils.H2("请输入有效的结束时间！");
+                    CustomDesktopAlert.H2("请输入有效的结束时间！");
                 }
 
                 int QRCodeCount = endCounter - startCounter;
-                Utils.H2(string.Format("<h2>开始个数:" + startCounter + "<br/>结束个数:" + endCounter + "<br/>共查询到 {0} 条记录</h2>", QRCodeCount.ToString()));
+                CustomDesktopAlert.H2(string.Format("<h2>开始个数:" + startCounter + "<br/>结束个数:" + endCounter + "<br/>共查询到 {0} 条记录</h2>", QRCodeCount.ToString()));
 
             }
             else
             {
-                Utils.H2("请输入有效的开始时间和结束时间！");
+                CustomDesktopAlert.H2("请输入有效的开始时间和结束时间！");
             }
         }
 
@@ -85,7 +85,7 @@ namespace Huali.DS9208
             }
             finally
             {
-                Utils.H2("统计计数完成！");
+                CustomDesktopAlert.H2("统计计数完成！");
             }
         }
     }

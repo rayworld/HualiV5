@@ -49,7 +49,7 @@ namespace Huali
             //else
             //{
             //    this.DialogResult = System.Windows.Forms.DialogResult.None;
-            //    Utils.H2("账号或密码错误，请重新输入!");
+            //    CustomDesktopAlert.H2("账号或密码错误，请重新输入!");
             //}
         }
 

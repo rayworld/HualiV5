@@ -1,4 +1,5 @@
 ﻿using DevComponents.DotNetBar;
+using Ray.Framework.CustomDotNetBar;
 using Ray.Framework.DBUtility;
 using Ray.Framework.Encrypt;
 using System;
@@ -87,7 +88,7 @@ namespace Huali.DS9208
             }
             else
             {
-                Utils.H2("无记录！请检查单据设置");
+                CustomDesktopAlert.H2("无记录！请检查单据设置");
             }
 
 

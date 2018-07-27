@@ -1,9 +1,10 @@
 ﻿using Huali.CheckMailStat;
-using Ray.Framework.Config;
-using System;
-using System.Windows.Forms;
 using Ray.Framework.AutoUpdate;
+using Ray.Framework.Config;
+using Ray.Framework.CustomDotNetBar;
+using System;
 using System.Net;
+using System.Windows.Forms;
 using System.Xml;
 
 namespace Huali
@@ -19,8 +20,6 @@ namespace Huali
             Application.EnableVisualStyles();            
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
             AutoUpdater au = new AutoUpdater();
             try
             {
@@ -28,23 +27,23 @@ namespace Huali
             }
             catch (WebException exp)
             {
-                Utils.H2(String.Format("无法找到指定资源\n\n{0}", exp.Message));
+                CustomDesktopAlert.H2(String.Format("无法找到指定资源\n\n{0}", exp.Message));
             }
             catch (XmlException exp)
             {
-                Utils.H2(String.Format("下载的升级文件有错误\n\n{0}", exp.Message));
+                CustomDesktopAlert.H2(String.Format("下载的升级文件有错误\n\n{0}", exp.Message));
             }
             catch (NotSupportedException exp)
             {
-                Utils.H2(String.Format("升级地址配置错误\n\n{0}", exp.Message));
+                CustomDesktopAlert.H2(String.Format("升级地址配置错误\n\n{0}", exp.Message));
             }
             catch (ArgumentException exp)
             {
-                Utils.H2(String.Format("下载的升级文件有错误\n\n{0}", exp.Message));
+                CustomDesktopAlert.H2(String.Format("下载的升级文件有错误\n\n{0}", exp.Message));
             }
             catch (Exception exp)
             {
-                Utils.H2(String.Format("升级过程中发生错误\n\n{0}", exp.Message));
+                CustomDesktopAlert.H2(String.Format("升级过程中发生错误\n\n{0}", exp.Message));
             }
 
             string modelName = ConfigHelper.ReadValueByKey(ConfigHelper.ConfigurationFile.AppConfig, "ModelName");
@@ -56,8 +55,7 @@ namespace Huali
             else
             {
                 Application.Run(new FrmMain());
-            }
-            
+            }            
         }
     }
 }

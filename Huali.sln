@@ -17,6 +17,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ray.Framework.WindowManage"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ray.Framework.AutoUpdate", "Ray.Framework.AutoUpdate\Ray.Framework.AutoUpdate.csproj", "{9D576B9C-3DB6-4C49-91CE-029300D3331C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ray.Framework.CustomDotNetBar", "Ray.Framework.CustomDotNetBar\Ray.Framework.CustomDotNetBar.csproj", "{CE751FB5-F7AE-4D45-A6AE-1F7F9A488711}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Huali.EDI2", "Huali.EDI2\Huali.EDI2.csproj", "{23C613A1-6238-4414-8801-5E6773FC8A7A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +55,14 @@ Global
 		{9D576B9C-3DB6-4C49-91CE-029300D3331C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9D576B9C-3DB6-4C49-91CE-029300D3331C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9D576B9C-3DB6-4C49-91CE-029300D3331C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE751FB5-F7AE-4D45-A6AE-1F7F9A488711}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE751FB5-F7AE-4D45-A6AE-1F7F9A488711}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE751FB5-F7AE-4D45-A6AE-1F7F9A488711}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE751FB5-F7AE-4D45-A6AE-1F7F9A488711}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23C613A1-6238-4414-8801-5E6773FC8A7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23C613A1-6238-4414-8801-5E6773FC8A7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23C613A1-6238-4414-8801-5E6773FC8A7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23C613A1-6238-4414-8801-5E6773FC8A7A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

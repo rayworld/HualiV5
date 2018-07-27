@@ -1,5 +1,5 @@
 ﻿using DevComponents.DotNetBar;
-using DevComponents.DotNetBar.Controls;
+using Ray.Framework.CustomDotNetBar;
 using Huali.EDI.DAL;
 using System;
 using System.Data;
@@ -287,12 +287,12 @@ namespace Huali.EDI
                 else
                 {
                     //MessageBox.Show(fAlconItemID + "产品编号不存在！");
-                    Utils.H2(fAlconItemID + "产品编号不存在！");
+                    CustomDesktopAlert.H2(fAlconItemID + "产品编号不存在！");
                     dataGridView1.Rows[i].Selected = true;
                 }
             }
 
-            Utils.H2("总共有 " + dt.Rows.Count.ToString() + " 条记录," + "导入失败 " + (dt.Rows.Count - successCount).ToString() + " 条！");
+            CustomDesktopAlert.H2("总共有 " + dt.Rows.Count.ToString() + " 条记录," + "导入失败 " + (dt.Rows.Count - successCount).ToString() + " 条！");
             //DesktopAlert.Show("<h2>" + "总共有 " + dt.Rows.Count.ToString() + " 条记录," + "导入失败 " + (dt.Rows.Count - successCount).ToString() + " 条！" + "</h2>");
             return retVal;
         }
@@ -370,7 +370,7 @@ namespace Huali.EDI
                 int fAuxPropID = dalAuxItem.GetAuxPropIDByKey(dt.Rows[i][9].ToString());
                 if (fAuxPropID == 0)
                 {
-                    Utils.H2("第" + (i+ 1).ToString() + "行的注册证号无效！");
+                    CustomDesktopAlert.H2("第" + (i+ 1).ToString() + "行的注册证号无效！");
                 }
 
                 if (dalICItem.Exists(fAlconItemID) == true)
@@ -426,20 +426,20 @@ namespace Huali.EDI
                     }
                     else
                     {
-                        Utils.H2("!!!");
+                        CustomDesktopAlert.H2("!!!");
                     }
                 }
                 else
                 {
                     //MessageBox.Show(fAlconItemID + "产品编号不存在！");
-                    Utils.H2("产品编号不存在！");
+                    CustomDesktopAlert.H2("产品编号不存在！");
                     dataGridView1.Rows[i].Selected = true;
 
                 }
             }
 
             //MessageBox.Show("总共有 " + dt.Rows.Count.ToString() + " 条记录,导入失败 " + (dt.Rows.Count - successCount).ToString() + " 条！");
-            Utils.H2("总共有 " + dt.Rows.Count.ToString() + " 条记录,导入失败 " + (dt.Rows.Count - successCount).ToString() + " 条！");
+            CustomDesktopAlert.H2("总共有 " + dt.Rows.Count.ToString() + " 条记录,导入失败 " + (dt.Rows.Count - successCount).ToString() + " 条！");
             return retVal;
         }
         #endregion

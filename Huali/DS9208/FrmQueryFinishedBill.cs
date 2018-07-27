@@ -1,4 +1,5 @@
 using DevComponents.DotNetBar;
+using Ray.Framework.CustomDotNetBar;
 using Ray.Framework.DBUtility;
 using System;
 using System.Data;
@@ -24,7 +25,7 @@ namespace Huali.DS9208
         {
             sql = string.Format("SELECT  DISTINCT TOP 200 CONVERT(varchar(10), [日期], 120) as 单据日期,[单据编号] FROM [dbo].[icstock] WHERE [FActQty] > 0 ORDER BY CONVERT(varchar(10), [日期], 120) DESC");
             dt = SqlHelper.ExecuteDataTable(conn, sql);
-            Utils.H2(dt.Rows.Count.ToString());
+            CustomDesktopAlert.H2(dt.Rows.Count.ToString());
             dataGridViewX1.DataSource = dt;
         }
 

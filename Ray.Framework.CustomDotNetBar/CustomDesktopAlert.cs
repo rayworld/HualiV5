@@ -1,8 +1,8 @@
-﻿using DevComponents.DotNetBar.Controls; 
+﻿using DevComponents.DotNetBar.Controls;
 
-namespace Huali
+namespace Ray.Framework.CustomDotNetBar
 {
-    public partial class Utils
+    public sealed class CustomDesktopAlert
     {
         public static void H2(string key)
         {

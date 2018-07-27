@@ -1,4 +1,5 @@
 ﻿using DevComponents.DotNetBar;
+using Ray.Framework.CustomDotNetBar;
 using Ray.Framework.DBUtility;
 using Ray.Framework.Encrypt;
 using System;
@@ -47,12 +48,12 @@ namespace Huali.DS9208
                 }
                 else
                 {
-                    Utils.H2(string.Format("{0} 二维码不存在！", mingQRCode));                    
+                    CustomDesktopAlert.H2(string.Format("{0} 二维码不存在！", mingQRCode));                    
                 }
             }
             else
             {
-                Utils.H2("无效的二维码！" );
+                CustomDesktopAlert.H2("无效的二维码！" );
             }
         }
     }

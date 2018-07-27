@@ -120,21 +120,12 @@
     <Compile Include="DS9208\FrmQueryBill3.designer.cs">
       <DependentUpon>FrmQueryBill3.cs</DependentUpon>
     </Compile>
-    <Compile Include="Utils.cs" />
     <Compile Include="DS9208\FrmBuildQRCode.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DS9208\FrmBuildQRCode.designer.cs">
       <DependentUpon>FrmBuildQRCode.cs</DependentUpon>
     </Compile>
-    <Compile Include="EDI2\DAL.cs" />
-    <Compile Include="EDI2\FrmSEOutStock.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="EDI2\FrmSEOutStock.designer.cs">
-      <DependentUpon>FrmSEOutStock.cs</DependentUpon>
-    </Compile>
-    <Compile Include="EDI2\Models.cs" />
     <Compile Include="EDI\DAL.cs" />
     <Compile Include="EDI\Enums.cs" />
     <Compile Include="EDI\FrmExport.cs">
@@ -200,9 +191,6 @@
     <EmbeddedResource Include="DS9208\FrmQueryBill3.resx">
       <DependentUpon>FrmQueryBill3.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EDI2\FrmSEOutStock.resx">
-      <DependentUpon>FrmSEOutStock.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="EDI\FrmExport.resx">
       <DependentUpon>FrmExport.cs</DependentUpon>
     </EmbeddedResource>
@@ -242,6 +230,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <ProjectReference Include="..\Huali.EDI2\Huali.EDI2.csproj">
+      <Project>{23c613a1-6238-4414-8801-5e6773fc8a7a}</Project>
+      <Name>Huali.EDI2</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Ray.Framework.AutoUpdate\Ray.Framework.AutoUpdate.csproj">
       <Project>{9d576b9c-3db6-4c49-91ce-029300d3331c}</Project>
       <Name>Ray.Framework.AutoUpdate</Name>
@@ -253,6 +245,10 @@
     <ProjectReference Include="..\Ray.Framework.Converter\Ray.Framework.Converter.csproj">
       <Project>{95ee5993-e394-4d68-8e2f-110822a77455}</Project>
       <Name>Ray.Framework.Converter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ray.Framework.CustomDotNetBar\Ray.Framework.CustomDotNetBar.csproj">
+      <Project>{ce751fb5-f7ae-4d45-a6ae-1f7f9a488711}</Project>
+      <Name>Ray.Framework.CustomDotNetBar</Name>
     </ProjectReference>
     <ProjectReference Include="..\Ray.Framework.DBUtility\Ray.Framework.DBUtility.csproj">
       <Project>{154cb011-3414-4ec5-a452-18d8936a17a6}</Project>

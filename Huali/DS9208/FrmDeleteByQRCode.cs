@@ -1,4 +1,5 @@
 ﻿using DevComponents.DotNetBar;
+using Ray.Framework.CustomDotNetBar;
 using Ray.Framework.DBUtility;
 using Ray.Framework.Encrypt;
 using System;
@@ -89,15 +90,15 @@ namespace Huali.DS9208
                 retValTotal = SqlHelper.ExecuteNonQuery(conn, sql);
                 if (retValTotal > 0 && retValDetail > 0)
                 {
-                    Utils.H2("二维码删除成功！");
+                    CustomDesktopAlert.H2("二维码删除成功！");
                 }
                 else if (retValDetail < 1)
                 {
-                    Utils.H2("二维码不存在！");
+                    CustomDesktopAlert.H2("二维码不存在！");
                 }
                 else
                 {
-                    Utils.H2("二维码删除失败！");
+                    CustomDesktopAlert.H2("二维码删除失败！");
                 }
 
                 //清空二维码框

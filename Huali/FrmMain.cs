@@ -7,6 +7,7 @@ using Ray.Framework.WindowManage;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using Ray.Framework.CustomDotNetBar;
 
 
 namespace Huali
@@ -253,14 +254,14 @@ namespace Huali
                     }
                     else
                     {
-                        Utils.H2(module.ToLower() + "不能识别的应用模块！");
+                        CustomDesktopAlert.H2(module.ToLower() + "不能识别的应用模块！");
                     }
                 }
 
             }
             else
             {
-                Utils.H2("应用程序加载模块出错！");
+                CustomDesktopAlert.H2("应用程序加载模块出错！");
             }
         }
 
