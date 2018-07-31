@@ -54,99 +54,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CheckMailStat\FrmCheckQRCodeState.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CheckMailStat\FrmCheckQRCodeState.Designer.cs">
-      <DependentUpon>FrmCheckQRCodeState.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DS9208\FrmQueryCheckState.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DS9208\FrmQueryCheckState.Designer.cs">
-      <DependentUpon>FrmQueryCheckState.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DS9208\FrmQueryByBill.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DS9208\FrmQueryByBill.designer.cs">
-      <DependentUpon>FrmQueryByBill.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DS9208\FrmQueryFinishedBill.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DS9208\FrmQueryFinishedBill.designer.cs">
-      <DependentUpon>FrmQueryFinishedBill.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DS9208\FrmImportBill.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DS9208\FrmImportBill.designer.cs">
-      <DependentUpon>FrmImportBill.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DS9208\FrmQRCodeScan.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DS9208\FrmQRCodeScan.designer.cs">
-      <DependentUpon>FrmQRCodeScan.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DS9208\FrmQueryByQRCode.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DS9208\FrmQueryByQRCode.designer.cs">
-      <DependentUpon>FrmQueryByQRCode.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DS9208\FrmDeleteByQRCode.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DS9208\FrmDeleteByQRCode.designer.cs">
-      <DependentUpon>FrmDeleteByQRCode.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DS9208\FrmDeleteByBill.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DS9208\FrmDeleteByBill.designer.cs">
-      <DependentUpon>FrmDeleteByBill.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DS9208\FrmStatistics.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DS9208\FrmStatistics.designer.cs">
-      <DependentUpon>FrmStatistics.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DS9208\FrmQueryBill3.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DS9208\FrmQueryBill3.designer.cs">
-      <DependentUpon>FrmQueryBill3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DS9208\FrmBuildQRCode.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DS9208\FrmBuildQRCode.designer.cs">
-      <DependentUpon>FrmBuildQRCode.cs</DependentUpon>
-    </Compile>
-    <Compile Include="EDI\DAL.cs" />
-    <Compile Include="EDI\Enums.cs" />
-    <Compile Include="EDI\FrmExport.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="EDI\FrmExport.designer.cs">
-      <DependentUpon>FrmExport.cs</DependentUpon>
-    </Compile>
-    <Compile Include="EDI\FrmImport.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="EDI\FrmImport.designer.cs">
-      <DependentUpon>FrmImport.cs</DependentUpon>
-    </Compile>
-    <Compile Include="EDI\FrmPOAcception.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="EDI\FrmPOAcception.designer.cs">
-      <DependentUpon>FrmPOAcception.cs</DependentUpon>
-    </Compile>
-    <Compile Include="EDI\Models.cs" />
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -161,45 +68,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="CheckMailStat\FrmCheckQRCodeState.resx">
-      <DependentUpon>FrmCheckQRCodeState.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DS9208\FrmDeleteByQRCode.resx">
-      <DependentUpon>FrmDeleteByQRCode.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DS9208\FrmQueryCheckState.resx">
-      <DependentUpon>FrmQueryCheckState.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DS9208\FrmQueryByBill.resx">
-      <DependentUpon>FrmQueryByBill.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DS9208\FrmQueryByQRCode.resx">
-      <DependentUpon>FrmQueryByQRCode.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DS9208\FrmQRCodeScan.resx">
-      <DependentUpon>FrmQRCodeScan.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DS9208\FrmQueryFinishedBill.resx">
-      <DependentUpon>FrmQueryFinishedBill.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DS9208\FrmStatistics.resx">
-      <DependentUpon>FrmStatistics.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DS9208\FrmBuildQRCode.resx">
-      <DependentUpon>FrmBuildQRCode.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DS9208\FrmQueryBill3.resx">
-      <DependentUpon>FrmQueryBill3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="EDI\FrmExport.resx">
-      <DependentUpon>FrmExport.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="EDI\FrmImport.resx">
-      <DependentUpon>FrmImport.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="EDI\FrmPOAcception.resx">
-      <DependentUpon>FrmPOAcception.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -230,9 +98,21 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <ProjectReference Include="..\Huali.CheckMailState\Huali.CheckMailState.csproj">
+      <Project>{0edd7e3d-49f0-4d80-83eb-fae14cae01fb}</Project>
+      <Name>Huali.CheckMailState</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Huali.DS9208\Huali.DS9208.csproj">
+      <Project>{bbbe8667-0d32-4e18-8a38-582c0cd64e41}</Project>
+      <Name>Huali.DS9208</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Huali.EDI2\Huali.EDI2.csproj">
       <Project>{23c613a1-6238-4414-8801-5e6773fc8a7a}</Project>
       <Name>Huali.EDI2</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Huali.EDI\Huali.EDI.csproj">
+      <Project>{3e0c4c61-f6d4-42f3-b224-4d748d82c1e0}</Project>
+      <Name>Huali.EDI</Name>
     </ProjectReference>
     <ProjectReference Include="..\Ray.Framework.AutoUpdate\Ray.Framework.AutoUpdate.csproj">
       <Project>{9d576b9c-3db6-4c49-91ce-029300d3331c}</Project>

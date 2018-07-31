@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BBBE8667-0D32-4E18-8A38-582C0CD64E41}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Huali.DS9208</RootNamespace>
+    <AssemblyName>Huali.DS9208</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevComponents.DotNetBar2, Version=12.8.0.6, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Huali\bin\Debug\DevComponents.DotNetBar2.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FrmBuildQRCode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBuildQRCode.designer.cs">
+      <DependentUpon>FrmBuildQRCode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDeleteByBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDeleteByBill.designer.cs">
+      <DependentUpon>FrmDeleteByBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDeleteByQRCode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDeleteByQRCode.designer.cs">
+      <DependentUpon>FrmDeleteByQRCode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmImportBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmImportBill.designer.cs">
+      <DependentUpon>FrmImportBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmQRCodeScan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmQRCodeScan.designer.cs">
+      <DependentUpon>FrmQRCodeScan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmQueryBill3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmQueryBill3.designer.cs">
+      <DependentUpon>FrmQueryBill3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmQueryByBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmQueryByBill.designer.cs">
+      <DependentUpon>FrmQueryByBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmQueryByQRCode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmQueryByQRCode.designer.cs">
+      <DependentUpon>FrmQueryByQRCode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmQueryCheckState.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmQueryCheckState.Designer.cs">
+      <DependentUpon>FrmQueryCheckState.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmQueryFinishedBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmQueryFinishedBill.designer.cs">
+      <DependentUpon>FrmQueryFinishedBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmStatistics.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmStatistics.designer.cs">
+      <DependentUpon>FrmStatistics.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FrmBuildQRCode.resx">
+      <DependentUpon>FrmBuildQRCode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDeleteByQRCode.resx">
+      <DependentUpon>FrmDeleteByQRCode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmQRCodeScan.resx">
+      <DependentUpon>FrmQRCodeScan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmQueryBill3.resx">
+      <DependentUpon>FrmQueryBill3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmQueryByBill.resx">
+      <DependentUpon>FrmQueryByBill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmQueryByQRCode.resx">
+      <DependentUpon>FrmQueryByQRCode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmQueryCheckState.resx">
+      <DependentUpon>FrmQueryCheckState.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmQueryFinishedBill.resx">
+      <DependentUpon>FrmQueryFinishedBill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmStatistics.resx">
+      <DependentUpon>FrmStatistics.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Ray.Framework.Config\Ray.Framework.Config.csproj">
+      <Project>{ba7cb68d-f2a6-4681-9d35-bd55d405f768}</Project>
+      <Name>Ray.Framework.Config</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ray.Framework.Converter\Ray.Framework.Converter.csproj">
+      <Project>{95ee5993-e394-4d68-8e2f-110822a77455}</Project>
+      <Name>Ray.Framework.Converter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ray.Framework.CustomDotNetBar\Ray.Framework.CustomDotNetBar.csproj">
+      <Project>{ce751fb5-f7ae-4d45-a6ae-1f7f9a488711}</Project>
+      <Name>Ray.Framework.CustomDotNetBar</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ray.Framework.DBUtility\Ray.Framework.DBUtility.csproj">
+      <Project>{154cb011-3414-4ec5-a452-18d8936a17a6}</Project>
+      <Name>Ray.Framework.DBUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ray.Framework.Encrypt\Ray.Framework.Encrypt.csproj">
+      <Project>{a67ff111-911f-4035-9441-53c633d2f791}</Project>
+      <Name>Ray.Framework.Encrypt</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

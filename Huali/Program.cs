@@ -1,4 +1,4 @@
-﻿using Huali.CheckMailStat;
+﻿using Huali.CheckMailState;
 using Ray.Framework.AutoUpdate;
 using Ray.Framework.Config;
 using Ray.Framework.CustomDotNetBar;

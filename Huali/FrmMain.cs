@@ -3,11 +3,11 @@ using Huali.DS9208;
 using Huali.EDI;
 using Huali.EDI2;
 using Ray.Framework.Config;
+using Ray.Framework.CustomDotNetBar;
 using Ray.Framework.WindowManage;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
-using Ray.Framework.CustomDotNetBar;
 
 
 namespace Huali
@@ -16,7 +16,13 @@ namespace Huali
     {
         public FrmMain()
         {
+            //全屏后不遮挡任务栏
+            this.StartPosition = FormStartPosition.Manual;
             InitializeComponent();
+            //全屏后不遮挡任务栏
+            this.MaximizedBounds = Screen.PrimaryScreen.WorkingArea;
+            //必加，不加也不会实现
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
         }
 
         #region 事件

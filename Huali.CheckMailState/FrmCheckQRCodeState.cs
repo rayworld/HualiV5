@@ -10,7 +10,7 @@ using System.Data;
 using System.IO;
 using System.Windows.Forms;
 
-namespace Huali.CheckMailStat
+namespace Huali.CheckMailState
 {
     public partial class FrmCheckQRCodeState : Office2007Form
     {

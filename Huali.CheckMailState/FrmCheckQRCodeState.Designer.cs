@@ -1,4 +1,4 @@
-namespace Huali.CheckMailStat
+namespace Huali.CheckMailState
 {
     partial class FrmCheckQRCodeState
     {
