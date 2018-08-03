@@ -41,8 +41,8 @@ namespace Huali.DS9208
             string year = textBoxX1.Text;
             string tableIndex = textBoxX2.Text;
 
-            ///2018-06-02 新增 对年份和表序号的检验
-            if (int.Parse(year) >= 16 && int.Parse(year) <= 18 && int.Parse(tableIndex) >= 0 && int.Parse(tableIndex)<= 99)
+            ///2018-06-02 新增 对年份和表序号的检验,且库序号不能为99，99库测试专用
+            if (int.Parse(year) >= 16 && int.Parse(year) <= 18 && int.Parse(tableIndex) >= 0 && int.Parse(tableIndex)< 99)
             {
                 dt = QRCodeBuilder(year, tableIndex, true);
                 this.dataGridViewX1.DataSource = dt;
