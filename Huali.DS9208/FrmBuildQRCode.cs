@@ -5,6 +5,8 @@ using Ray.Framework.CustomDotNetBar;
 using Ray.Framework.Encrypt;
 using System;
 using System.Data;
+using System.IO;
+using System.Windows.Forms;
 
 namespace Huali.DS9208
 {
@@ -70,7 +72,22 @@ namespace Huali.DS9208
             //    Image img = pictureBox1.Image;
             //    img.Save("d:/temp/" + textBoxX2.Text + (j + 1).ToString().PadLeft(5,'0') + ".jpg");
             //}
-            DataTable2Excel.Data2Excel(dt,"");
+
+
+            SaveFileDialog saveFileDialog = new SaveFileDialog
+            {
+                //设置文件类型
+                Filter = "Excel 97-2003工作簿（*.xls）|*.xls|全部文件(*.*)|*.*",
+                FileName = "QRCode",//设置默认文件名
+                RestoreDirectory = true,//保存对话框是否记忆上次打开的目录
+                CheckPathExists = true//检查目录
+            };
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string strSaveFileLocation = saveFileDialog.FileName;//文件路径
+                DataTable2Excel.Data2Excel(dt, strSaveFileLocation);
+            }
         }
 
         #endregion
