@@ -77,7 +77,7 @@ namespace Huali.DS9208
             SaveFileDialog saveFileDialog = new SaveFileDialog
             {
                 //设置文件类型
-                Filter = "Excel 97-2003工作簿（*.xls）|*.xls|全部文件(*.*)|*.*",
+                Filter = "Excel 97-2003工作簿（*.xls）|*.xls|所有文件(*.*)|*.*",
                 FileName = "QRCode",//设置默认文件名
                 RestoreDirectory = true,//保存对话框是否记忆上次打开的目录
                 CheckPathExists = true//检查目录

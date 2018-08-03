@@ -156,11 +156,11 @@
             this.ribbonPanel3.Controls.Add(this.ribbonBar4);
             this.ribbonPanel3.Controls.Add(this.ribbonBar3);
             this.ribbonPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ribbonPanel3.Location = new System.Drawing.Point(0, 60);
+            this.ribbonPanel3.Location = new System.Drawing.Point(0, 87);
             this.ribbonPanel3.Margin = new System.Windows.Forms.Padding(4);
             this.ribbonPanel3.Name = "ribbonPanel3";
             this.ribbonPanel3.Padding = new System.Windows.Forms.Padding(4, 0, 4, 3);
-            this.ribbonPanel3.Size = new System.Drawing.Size(1378, 168);
+            this.ribbonPanel3.Size = new System.Drawing.Size(1378, 141);
             // 
             // 
             // 
@@ -195,7 +195,7 @@
             this.ribbonBar8.Location = new System.Drawing.Point(1073, 0);
             this.ribbonBar8.Margin = new System.Windows.Forms.Padding(4);
             this.ribbonBar8.Name = "ribbonBar8";
-            this.ribbonBar8.Size = new System.Drawing.Size(148, 165);
+            this.ribbonBar8.Size = new System.Drawing.Size(148, 138);
             this.ribbonBar8.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.ribbonBar8.TabIndex = 5;
             this.ribbonBar8.Text = "统计";
@@ -236,7 +236,7 @@
             this.ribbonBar7.Location = new System.Drawing.Point(874, 0);
             this.ribbonBar7.Margin = new System.Windows.Forms.Padding(4);
             this.ribbonBar7.Name = "ribbonBar7";
-            this.ribbonBar7.Size = new System.Drawing.Size(199, 165);
+            this.ribbonBar7.Size = new System.Drawing.Size(199, 138);
             this.ribbonBar7.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.ribbonBar7.TabIndex = 4;
             this.ribbonBar7.Text = "删除";
@@ -283,7 +283,7 @@
             this.ribbonBar6.Location = new System.Drawing.Point(781, 0);
             this.ribbonBar6.Margin = new System.Windows.Forms.Padding(4);
             this.ribbonBar6.Name = "ribbonBar6";
-            this.ribbonBar6.Size = new System.Drawing.Size(93, 165);
+            this.ribbonBar6.Size = new System.Drawing.Size(93, 138);
             this.ribbonBar6.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.ribbonBar6.TabIndex = 3;
             this.ribbonBar6.Text = "导入";
@@ -327,7 +327,7 @@
             this.ribbonBar5.Location = new System.Drawing.Point(226, 0);
             this.ribbonBar5.Margin = new System.Windows.Forms.Padding(4);
             this.ribbonBar5.Name = "ribbonBar5";
-            this.ribbonBar5.Size = new System.Drawing.Size(555, 165);
+            this.ribbonBar5.Size = new System.Drawing.Size(555, 138);
             this.ribbonBar5.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.ribbonBar5.TabIndex = 2;
             this.ribbonBar5.Text = "查询";
@@ -395,7 +395,7 @@
             this.ribbonBar4.Location = new System.Drawing.Point(115, 0);
             this.ribbonBar4.Margin = new System.Windows.Forms.Padding(4);
             this.ribbonBar4.Name = "ribbonBar4";
-            this.ribbonBar4.Size = new System.Drawing.Size(111, 165);
+            this.ribbonBar4.Size = new System.Drawing.Size(111, 138);
             this.ribbonBar4.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.ribbonBar4.TabIndex = 1;
             this.ribbonBar4.Text = "扫描";
@@ -435,7 +435,7 @@
             this.ribbonBar3.Location = new System.Drawing.Point(4, 0);
             this.ribbonBar3.Margin = new System.Windows.Forms.Padding(4);
             this.ribbonBar3.Name = "ribbonBar3";
-            this.ribbonBar3.Size = new System.Drawing.Size(111, 165);
+            this.ribbonBar3.Size = new System.Drawing.Size(111, 138);
             this.ribbonBar3.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.ribbonBar3.TabIndex = 0;
             this.ribbonBar3.Text = "生成";
@@ -907,12 +907,12 @@
             this.bar1.GrabHandleStyle = DevComponents.DotNetBar.eGrabHandleStyle.ResizeHandle;
             this.bar1.IsMaximized = false;
             this.bar1.ItemSpacing = 2;
-            this.bar1.Location = new System.Drawing.Point(0, 672);
+            this.bar1.Location = new System.Drawing.Point(0, 671);
             this.bar1.Margin = new System.Windows.Forms.Padding(4);
             this.bar1.Name = "bar1";
             this.bar1.PaddingBottom = 0;
             this.bar1.PaddingTop = 0;
-            this.bar1.Size = new System.Drawing.Size(1378, 26);
+            this.bar1.Size = new System.Drawing.Size(1378, 27);
             this.bar1.Stretch = true;
             this.bar1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.bar1.TabIndex = 8;
@@ -946,7 +946,7 @@
             this.NavTabControl.ReorderTabsEnabled = true;
             this.NavTabControl.SelectedTabFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold);
             this.NavTabControl.SelectedTabIndex = -1;
-            this.NavTabControl.Size = new System.Drawing.Size(1378, 441);
+            this.NavTabControl.Size = new System.Drawing.Size(1378, 440);
             this.NavTabControl.TabFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.NavTabControl.TabIndex = 11;
             this.NavTabControl.Text = "superTabControl1";
