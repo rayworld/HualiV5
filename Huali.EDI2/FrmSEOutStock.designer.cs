@@ -51,7 +51,7 @@ namespace Huali.EDI2
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewX1.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewX1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewX1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.dataGridViewX1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dataGridViewX1.Location = new System.Drawing.Point(0, 73);
             this.dataGridViewX1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridViewX1.Name = "dataGridViewX1";
@@ -107,14 +107,15 @@ namespace Huali.EDI2
             this.buttonX1.Text = "µº»Î";
             this.buttonX1.Click += new System.EventHandler(this.ButtonX1_Click);
             // 
-            // frmEDI_SEOutStock
+            // FrmSEOutStock
             // 
             this.ClientSize = new System.Drawing.Size(1028, 749);
             this.Controls.Add(this.dataGridViewX1);
             this.Controls.Add(this.panelEx1);
             this.DoubleBuffered = true;
-            this.Name = "frmEDI_SEOutStock";
+            this.Name = "FrmSEOutStock";
             this.Text = "EDI_Order";
+            this.Load += new System.EventHandler(this.FrmSEOutStock_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewX1)).EndInit();
             this.panelEx1.ResumeLayout(false);
             this.ResumeLayout(false);

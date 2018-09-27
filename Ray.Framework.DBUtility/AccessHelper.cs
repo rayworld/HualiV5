@@ -3,6 +3,7 @@ using System.Collections;
 using System.Data;
 using System.Data.OleDb;
 using System.Configuration;
+using Ray.Framework.Encrypt;
 
 namespace Ray.Framework.DBUtility
 {
@@ -10,11 +11,63 @@ namespace Ray.Framework.DBUtility
     {
         private AccessHelper() { }
 
-        //Database connection strings  
-        public static readonly string AccessConnectionString = ConfigurationManager.ConnectionStrings["AccessConnectionString"].ConnectionString;
-
         // Hashtable to store cached parameters
-        private static Hashtable parmCache = Hashtable.Synchronized(new Hashtable());
+        private static readonly Hashtable parmCache = Hashtable.Synchronized(new Hashtable());
+
+        //Database connection strings  
+        #region ConnectionString
+        /// <summary>
+        /// 得到web.config里配置项的数据库连接字符串。
+        /// </summary>
+        /// <param name="configName"></param>
+        /// <returns></returns>
+        public static string GetConnectionString(string configName, bool encryptable)
+        {
+            string connectionString = "";
+
+            try
+            {
+                connectionString = ConfigurationManager.ConnectionStrings[configName].ConnectionString;
+                return encryptable == true ? EncryptHelper.Decrypt(connectionString) : connectionString;
+            }
+            catch
+            {
+                throw new Exception("未能取得该名称的连接设置！");
+            }
+        }
+
+        /// <summary>
+        /// 重载
+        /// </summary>
+        /// <param name="configName"></param>
+        /// <returns></returns>
+        public static string GetConnectionString(string configName)
+        {
+            return GetConnectionString(configName, true);
+        }
+
+        /// <summary>
+        /// 重载
+        /// 不写参数是加密的，写了就不加密
+        /// </summary>
+        /// <returns></returns>
+        public static string GetConnectionString()
+        {
+            return GetConnectionString("AccessConnectionString", true);
+        }
+
+        /// <summary>
+        /// 重载
+        /// 不写参数是加密的，写了就不加密
+        /// </summary>
+        /// <param name="encryptable"></param>
+        /// <returns></returns>
+        public static string GetConnectionString(bool encryptable)
+        {
+            return GetConnectionString("AccessConnectionString", false);
+        }
+
+        #endregion
 
         #region ExecuteNonQuery
 
@@ -36,13 +89,36 @@ namespace Ray.Framework.DBUtility
 
             OleDbCommand cmd = new OleDbCommand();
 
-            using (OleDbConnection conn = new OleDbConnection(AccessConnectionString))
+            using (OleDbConnection conn = new OleDbConnection(connectionString))
             {
                 PrepareCommand(cmd, conn, null, cmdType, cmdText, commandParameters);
                 int val = cmd.ExecuteNonQuery();
                 cmd.Parameters.Clear();
                 return val;
             }
+        }
+
+        /// <summary>
+        /// 重载
+        /// </summary>
+        /// <param name="connectionString"></param>
+        /// <param name="cmdText"></param>
+        /// <param name="commandParameters"></param>
+        /// <returns></returns>
+        public static int ExecuteNonQuery(string connectionString, string cmdText, params OleDbParameter[] commandParameters)
+        {
+            return ExecuteNonQuery(connectionString, CommandType.Text, cmdText, commandParameters);
+        }
+
+        /// <summary>
+        /// 重载
+        /// </summary>
+        /// <param name="connectionString"></param>
+        /// <param name="cmdText"></param>
+        /// <returns></returns>
+        public static int ExecuteNonQuery(string connectionString, string cmdText)
+        {
+            return ExecuteNonQuery(connectionString, CommandType.Text, cmdText, null);
         }
 
         /// <summary>
@@ -90,18 +166,6 @@ namespace Ray.Framework.DBUtility
             cmd.Parameters.Clear();
             return val;
         }
-
-        /// <summary>
-        /// 重载
-        /// </summary>
-        /// <param name="CmdText"></param>
-        /// <param name="commandPararmeters"></param>
-        /// <returns></returns>
-        public static int ExecuteNonQuery(string CmdText, params OleDbParameter[] commandPararmeters)
-        {
-            return ExecuteNonQuery(AccessConnectionString, CommandType.Text, CmdText, commandPararmeters);
-        }
-
         #endregion
 
         #region ExecuteDataSet
@@ -143,10 +207,33 @@ namespace Ray.Framework.DBUtility
         /// <param name="cmdText"></param>
         /// <param name="commandParameters"></param>
         /// <returns></returns>
-        public static DataSet ExecuteDataSet(string cmdText, params OleDbParameter[] commandParameters)
+        public static DataSet ExecuteDataSet(string connectionString, string cmdText, params OleDbParameter[] commandParameters)
         {
-            return ExecuteDataSet(AccessConnectionString, CommandType.Text, cmdText, commandParameters);
+            return ExecuteDataSet(connectionString, CommandType.Text, cmdText, commandParameters);
         }
+
+        /// <summary>
+        /// 重载
+        /// </summary>
+        /// <param name="cmdText"></param>
+        /// <param name="commandParameters"></param>
+        /// <returns></returns>
+        public static DataSet ExecuteDataSet(string connectionString, string cmdText)
+        {
+            return ExecuteDataSet(connectionString, CommandType.Text, cmdText);
+        }
+
+        /// <summary>
+        /// 重载
+        /// </summary>
+        /// <param name="connectionString"></param>
+        /// <param name="cmdText"></param>
+        /// <returns></returns>
+        public static DataTable ExecuteDataTable(string connectionString,string cmdText)
+        {
+            return ExecuteDataSet(connectionString, CommandType.Text, cmdText, null).Tables[0];
+        }
+
 
         #endregion
 
@@ -193,9 +280,9 @@ namespace Ray.Framework.DBUtility
         /// <param name="CmdText"></param>
         /// <param name="commamdParameters"></param>
         /// <returns></returns>
-        public static OleDbDataReader ExecuteReader(string CmdText, params OleDbParameter[] commamdParameters)
+        public static OleDbDataReader ExecuteReader(string connectionString, string CmdText, params OleDbParameter[] commamdParameters)
         {
-            return ExecuteReader(AccessConnectionString, CommandType.Text, CmdText, commamdParameters);
+            return ExecuteReader(connectionString, CommandType.Text, CmdText, commamdParameters);
         }
         #endregion
 
@@ -257,9 +344,9 @@ namespace Ray.Framework.DBUtility
         /// <param name="CmdText"></param>
         /// <param name="commandParameters"></param>
         /// <returns></returns>
-        public static object ExecuteScalar(string CmdText, params OleDbParameter[] commandParameters)
+        public static object ExecuteScalar(string connectionString, string CmdText, params OleDbParameter[] commandParameters)
         {
-            return ExecuteScalar(AccessConnectionString, CommandType.Text, CmdText, commandParameters);
+            return ExecuteScalar(connectionString, CommandType.Text, CmdText, commandParameters);
         }
 
         #endregion

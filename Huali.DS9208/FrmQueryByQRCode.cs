@@ -56,5 +56,10 @@ namespace Huali.DS9208
                 CustomDesktopAlert.H2("无效的二维码！" );
             }
         }
+
+        private void FrmQueryByQRCode_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

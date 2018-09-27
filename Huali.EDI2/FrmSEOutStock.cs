@@ -881,6 +881,11 @@ namespace Huali.EDI2
         #endregion
 
         #endregion
+
+        private void FrmSEOutStock_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 
     public enum TemplateType 
